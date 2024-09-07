@@ -160,3 +160,58 @@
           (cons 'credits (/ credits-count record-count))
           (cons 'autoshow (/ autoshow-count record-count))
           (cons 'wheelspin-only (/ wheelspin-only-count record-count)))))
+
+;;; Some interesting analyses
+(defparameter database (mapcar #'parse-data-line (read-data-file)))
+(defparameter regular-wheelspin-cosmetics-evolution
+  (mapcar #'outcome-summary (split-list 100 (remove-if #'super-wheelspin-p database))))
+
+(defun make-graph-outcome-evolution (outcome-list chunk-length)
+  "Returns TikZ + PGFPlots code to display a list of outcome summaries,
+  like `regular-wheelspin-cosmetics-evolution`."
+  (let* ((tikz-template "
+            % Save this to chart.tex, then compile with
+            %   pdflatex chart.tex
+            %   pdftoppm chart.pdf chart -png -r 300
+            \\documentclass{standalone}
+            \\usepackage{tikz}
+            \\usepackage{pgfplots}
+            \\pgfplotsset{compat=1.18}
+            \\begin{document}
+            \\begin{tikzpicture}
+            \\begin{axis}[
+                    xbar stacked,
+                    ytick = data,
+                    nodes near coords,
+                    hide x axis = true,
+                    legend style = {
+                        at = {(0.5,0)},
+                        anchor = north,
+                    },
+                    legend columns = -1,
+                    axis y line* = left,
+                    y dir = reverse,
+                ]
+                \\addplot coordinates {~A};
+                \\addplot coordinates {~A};
+                \\addplot coordinates {~A};
+                \\addplot coordinates {~A};
+                \\legend{Cosmetics,Credits,Autoshow cars,Wheelspin exclusives}
+            \\end{axis}
+            \\end{tikzpicture}
+            \\end{document}")
+         (make-label-list (lambda (key)
+                            (apply #'concatenate 'string
+                                   (loop for outcome in outcome-list for index from 1
+                                         collect (format nil "(~d,~d) "
+                                                         (* chunk-length (cdr (assoc key outcome)))
+                                                         (* chunk-length index))))))
+         (cosmetics-label-list (funcall make-label-list 'cosmetics))
+         (credits-label-list (funcall make-label-list 'credits))
+         (autoshow-label-list (funcall make-label-list 'autoshow))
+         (wheelspin-exclusives-label-list (funcall make-label-list 'wheelspin-only)))
+    (format nil tikz-template
+            cosmetics-label-list
+            credits-label-list
+            autoshow-label-list
+            wheelspin-exclusives-label-list)))
