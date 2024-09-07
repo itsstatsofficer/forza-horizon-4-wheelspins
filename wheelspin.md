@@ -1,104 +1,104 @@
-- Rare: Credits - 130k
-- Common: Car, wheelspin only, worth 28k credits - 1993 Ford SVT Cobra R
-- Rare: Car, worth 74k credits - 2014 Alfa Romeo 4C
-- Common: Credits - 2k
-- Legendary: Car, worth 140k credits - 1956 Lotus Eleven
-- Common: Clothing - Colby Leather Sweater, I think?
-- Left - Common: Credits - 10k
-- Center - Epic: Car, worth 60k credits - 1969 Volkswagen Class 5 Bug
-- Right - Epic: Car, worth 420k credits - 2015 McLaren 650S Coupé
-- Common: Clothing - All Black Canvas
-- Epic: Clothing - Golden Running Shorts
-- Legendary: Car, worth 2100k credits - 1965 Shelby Cobra 427 S/C
-- Common: Car, worth 30k credits - 1976 Jeep CJ5 Renegade
-- Common: Clothing - Green Boots
-- Common: Credits - 15k
-- Common: Car, worth 20k credits - 1965 Volkswagen Corrado VR6
-- Rare: Clothing - Corduroy Cap
-- Common: Clothing - Cheap Trilby
-- Common: Credits - 10k
-- Common: Credits - 10k
-- Rare: Clothing - Leopard Bowler
-- Common: Car, worth 35k credits - 1932 Ford De Luxe Five-Window Coupe
-- Common: Car, worth 26k credits - 2013 Mazda MX-5
-- Common: Clothing - White Shorts
-- Epic: Credits - 230k
-- Rare: Credits - 75k
-- Forza Edition: Car, wheelspin only, worth 316k credits - 1980 Renault 5 Turbo Forza Edition
-- Epic: Clothing - Golden Canvas
-- Epic: Credits - 170k
-- Common: Credits - 15k
-- Common: Credits - 10k
-- Rare: Car, worth 73k credits - 1973 Ford Escort RS1600
-- Common: Car, worth 20k credits - 1958 Austin-Healey Sprite MkI
-- Epic: Car, worth 150k credits - 2016 Dodge Viper ACR
-- Common: Car, worth 50k credits - 2016 Nissan Titan Warrior Concept
-- Rare: Clothing - Houndstooth Pea Coat'
-- Common: Credits - 20k
-- Rare: Credits - 100k
-- Rare: Credits - 75k
-- Common: Credits - 20k
-- Common: Credits - 15k
-- Common: Car, worth 35k credits - 2003 Nissan Fairlady Z
-- Epic: Credits - 180k
-- Rare: Clothing - Floral Shirt
-- Rare: Clothing - Purple Cargo Pants
-- Epic: Credits - 190k
-- Common: Car, worth 55k credits - 2017 Jaguar F-Pace S
-- Common: Car, worth 25k credits - 1990 Subaru Legacy RS
-- Rare: Clothing - Disco Boots
-- Common: Credits - 2k
-- Rare: Credits - 130k
-- Common: Credits - 40k
-- Rare: Car, worth 27k credits - 2011 Mazda RX-8 R3
-- Common: Clothing - Red Parka
-- Rare: Credits - 110k
-- Rare: Clothing - Red Wellies
-- Common: Credits - 30k
-- Rare: Credits - 75k
-- Common: Credits - 35k
-- Common: Credits - 5k
-- Common: Clothing - Black Pea Coat
-- Common: Clothing - Orange Turtleneck
-- Common: Credits - 60k
-- Common: Clothing - Yellow Boots
-- Left - Epic: Clothing - Tartan Rollups
-- Center - Common: Credits - 5k
-- Right - Rare: Car, worth 82k credits - 2008 BMW Z4 M Coupe
-- Common: Credits - 10k
-- Rare: Credits - 100k
-- Common: Credits - 5k
-- Common: Car, worth 46k credits - 1964 Chevrolet Impala Super Sport 409
-- Common: Credits - 50k
-- Rare: Credits - 120k
-- Rare: Clothing - Fat Mollins Tee
-- Common: Car, worth 25k credits - 2005 Mazda Mazdaspeed MX-5
-- Common: Credits - 15k
-- Common: Credits - 10k
-- Forza Edition: Car, wheelspin only, worth 330k credits - 1972 Ford Falcon XA GT-HO Forza Edition
-- Common: Credits - 2k
-- Common: Credits - 60k
-- Common: Credits - 70k
-- Common: Credits - 10k
-- Common: Credits - 25k
-- Epic: Credits - 150k
-- Common: Car, worth 80k credits - 2014 Jeep Grand Cherokee SRT
-- Common: Clothing - Retro Sports Tee
-- Rare: Credits - 90k
-- Common: Credits - 5k
-- Common: Credits - 25k
-- Epic: Credits - 200k
-- Common: Car, worth 20k credits - 1991 Honda CR-X SiR
-- Common: Credits - 20k
-- Common: Car, worth 25k credits - 2001 Acura Integra Type-R
-- Rare: Credits - 100k
-- Rare: Clothing - Blue Tartan Rollups
-- Common: Credits - 5k
-- Common: Clothing - Yellow Hoodie
-- Common: Car, worth 36k credits - 1956 Ford F-100
-- Epic: Car, worth 100k credits - 2012 Jaguar XKR-S
-- Rare: Clothing - Autumn Mittens
-- Rare: Clothing - Sunset Polo
-- Common: Clothing - Rods and Customs Tee
-- Epic: Credits - 170k
-- Common: Car, worth 57k credits - 2015 Jaguar XE-S
+Rare: Credits - 130k
+Common: Car, wheelspin only, worth 28k credits - 1993 Ford SVT Cobra R
+Rare: Car, worth 74k credits - 2014 Alfa Romeo 4C
+Common: Credits - 2k
+Legendary: Car, worth 140k credits - 1956 Lotus Eleven
+Common: Clothing - Colby Leather Sweater, I think?
+Left - Common: Credits - 10k
+Center - Epic: Car, worth 60k credits - 1969 Volkswagen Class 5 Bug
+Right - Epic: Car, worth 420k credits - 2015 McLaren 650S Coupé
+Common: Clothing - All Black Canvas
+Epic: Clothing - Golden Running Shorts
+Legendary: Car, worth 2100k credits - 1965 Shelby Cobra 427 S/C
+Common: Car, worth 30k credits - 1976 Jeep CJ5 Renegade
+Common: Clothing - Green Boots
+Common: Credits - 15k
+Common: Car, worth 20k credits - 1965 Volkswagen Corrado VR6
+Rare: Clothing - Corduroy Cap
+Common: Clothing - Cheap Trilby
+Common: Credits - 10k
+Common: Credits - 10k
+Rare: Clothing - Leopard Bowler
+Common: Car, worth 35k credits - 1932 Ford De Luxe Five-Window Coupe
+Common: Car, worth 26k credits - 2013 Mazda MX-5
+Common: Clothing - White Shorts
+Epic: Credits - 230k
+Rare: Credits - 75k
+Forza Edition: Car, wheelspin only, worth 316k credits - 1980 Renault 5 Turbo Forza Edition
+Epic: Clothing - Golden Canvas
+Epic: Credits - 170k
+Common: Credits - 15k
+Common: Credits - 10k
+Rare: Car, worth 73k credits - 1973 Ford Escort RS1600
+Common: Car, worth 20k credits - 1958 Austin-Healey Sprite MkI
+Epic: Car, worth 150k credits - 2016 Dodge Viper ACR
+Common: Car, worth 50k credits - 2016 Nissan Titan Warrior Concept
+Rare: Clothing - Houndstooth Pea Coat'
+Common: Credits - 20k
+Rare: Credits - 100k
+Rare: Credits - 75k
+Common: Credits - 20k
+Common: Credits - 15k
+Common: Car, worth 35k credits - 2003 Nissan Fairlady Z
+Epic: Credits - 180k
+Rare: Clothing - Floral Shirt
+Rare: Clothing - Purple Cargo Pants
+Epic: Credits - 190k
+Common: Car, worth 55k credits - 2017 Jaguar F-Pace S
+Common: Car, worth 25k credits - 1990 Subaru Legacy RS
+Rare: Clothing - Disco Boots
+Common: Credits - 2k
+Rare: Credits - 130k
+Common: Credits - 40k
+Rare: Car, worth 27k credits - 2011 Mazda RX-8 R3
+Common: Clothing - Red Parka
+Rare: Credits - 110k
+Rare: Clothing - Red Wellies
+Common: Credits - 30k
+Rare: Credits - 75k
+Common: Credits - 35k
+Common: Credits - 5k
+Common: Clothing - Black Pea Coat
+Common: Clothing - Orange Turtleneck
+Common: Credits - 60k
+Common: Clothing - Yellow Boots
+Left - Epic: Clothing - Tartan Rollups
+Center - Common: Credits - 5k
+Right - Rare: Car, worth 82k credits - 2008 BMW Z4 M Coupe
+Common: Credits - 10k
+Rare: Credits - 100k
+Common: Credits - 5k
+Common: Car, worth 46k credits - 1964 Chevrolet Impala Super Sport 409
+Common: Credits - 50k
+Rare: Credits - 120k
+Rare: Clothing - Fat Mollins Tee
+Common: Car, worth 25k credits - 2005 Mazda Mazdaspeed MX-5
+Common: Credits - 15k
+Common: Credits - 10k
+Forza Edition: Car, wheelspin only, worth 330k credits - 1972 Ford Falcon XA GT-HO Forza Edition
+Common: Credits - 2k
+Common: Credits - 60k
+Common: Credits - 70k
+Common: Credits - 10k
+Common: Credits - 25k
+Epic: Credits - 150k
+Common: Car, worth 80k credits - 2014 Jeep Grand Cherokee SRT
+Common: Clothing - Retro Sports Tee
+Rare: Credits - 90k
+Common: Credits - 5k
+Common: Credits - 25k
+Epic: Credits - 200k
+Common: Car, worth 20k credits - 1991 Honda CR-X SiR
+Common: Credits - 20k
+Common: Car, worth 25k credits - 2001 Acura Integra Type-R
+Rare: Credits - 100k
+Rare: Clothing - Blue Tartan Rollups
+Common: Credits - 5k
+Common: Clothing - Yellow Hoodie
+Common: Car, worth 36k credits - 1956 Ford F-100
+Epic: Car, worth 100k credits - 2012 Jaguar XKR-S
+Rare: Clothing - Autumn Mittens
+Rare: Clothing - Sunset Polo
+Common: Clothing - Rods and Customs Tee
+Epic: Credits - 170k
+Common: Car, worth 57k credits - 2015 Jaguar XE-S
