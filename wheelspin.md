@@ -10,10 +10,10 @@ Right - Epic: Car, worth 420k credits - 2015 McLaren 650S Coupé
 Common: Clothing - All Black Canvas
 Epic: Clothing - Golden Running Shorts
 Legendary: Car, worth 2100k credits - 1965 Shelby Cobra 427 S/C
-Common: Car, worth 30k credits - 1976 Jeep CJ5 Renegade
+Common: Car, worth 60k credits - 1976 Jeep CJ5 Renegade
 Common: Clothing - Green Boots
 Common: Credits - 15k
-Common: Car, worth 20k credits - 1965 Volkswagen Corrado VR6
+Common: Car, worth 20k credits - 1995 Volkswagen Corrado VR6
 Rare: Clothing - Corduroy Cap
 Common: Clothing - Cheap Trilby
 Common: Credits - 10k
@@ -337,7 +337,7 @@ Center - Legendary: Car, worth 500k credits - 2016 Hoonigan Gymkhana 9 Ford Focu
 Right - Common: Credits - 20k
 Rare: Credits - 110k
 Common: Credits - 2k
-Common: Car, worth 35k credits - 1995 Chevrolet 150 Utility Sedan
+Common: Car, worth 35k credits - 1955 Chevrolet 150 Utility Sedan
 Common: Credits - 25k
 Common: Credits - 15k
 Epic: Car, worth 240k credits - 2012 Ascar KZ1R
