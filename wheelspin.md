@@ -322,3 +322,28 @@ Common: Credits - 5k
 Common: Car, worth 80k credits - 1959 Jaguar Mk II 3.8
 Rare: Car, worth 53k credits - 1970 Chevrolet Camaro S28
 Epic: Credits - 150k
+Epic: Credits - 170k
+Common: Car, worth 35k credits - 2000 Nissan Silvia Spec-R
+Common: Credits - 40k
+Common: Car, worth 30k credits - 2010 Renault Megane R.S. 250
+Rare: Car, worth 35k credits - 1989 Porsche 944 Turbo
+Common: Credits - 40k
+Common: Credits - 10k
+Left - Legendary: Credits - 250k
+Center - Common: Credits - 5k
+Right - Common: Credits - 10k
+Left - Common: Credits - 20k
+Center - Legendary: Car, worth 500k credits - 2016 Hoonigan Gymkhana 9 Ford Focus RS RX
+Right - Common: Credits - 20k
+Rare: Credits - 110k
+Common: Credits - 2k
+Common: Car, worth 35k credits - 1995 Chevrolet 150 Utility Sedan
+Common: Credits - 25k
+Common: Credits - 15k
+Epic: Car, worth 240k credits - 2012 Ascar KZ1R
+Common: Clothing - Black Joggers
+Rare: Clothing - Satin Blazer
+Common: Credits - 10k
+Common: Credits - 7k
+Common: Credits - 5k
+Common: Credits - 2k
