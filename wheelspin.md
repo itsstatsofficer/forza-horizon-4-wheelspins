@@ -59,3 +59,28 @@
 - Common: Clothing - Orange Turtleneck
 - Common: Credits - 60k
 - Common: Clothing - Yellow Boots
+- Common: Credits - 10k
+- Rare: Credits - 100k
+- Common: Credits - 5k
+- Common: Car, worth 46k credits - 1964 Chevrolet Impala Super Sport 409
+- Common: Credits - 50k
+- Rare: Credits - 120k
+- Rare: Clothing - Fat Mollins Tee
+- Common: Car, worth 25k credits - 2005 Mazda Mazdaspeed MX-5
+- Common: Credits - 15k
+- Common: Credits - 10k
+- Forza Edition: Car, wheelspin only, worth 330k credits - 1972 Ford Falcon XA GT-HO Forza Edition
+- Common: Credits - 2k
+- Common: Credits - 60k
+- Common: Credits - 70k
+- Common: Credits - 10k
+- Common: Credits - 25k
+- Epic: Credits - 150k
+- Common: Car, worth 80k credits - 2014 Jeep Grand Cherokee SRT
+- Common: Clothing - Retro Sports Tee
+- Rare: Credits - 90k
+- Common: Credits - 5k
+- Common: Credits - 25k
+- Epic: Credits - 200k
+- Common: Car, worth 20k credits - 1991 Honda CR-X SiR
+- Common: Credits - 20k
