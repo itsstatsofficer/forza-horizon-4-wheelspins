@@ -719,8 +719,8 @@ Center - Common: Car, worth 83k credits - 2016 Toyota Land Cruiser Arctic Trucks
 Right - Legendary: Credits - 300k
 Left - Common: Credits - 5k
 Center - Common: Credits - 30k
-Right - Epic: Car, worth 300k - 1957 Porsche 356A Speedster
-Left - Legendary: Car, worth 2800k - 2002 Ferrari Enzo Ferrari
+Right - Epic: Car, worth 300k credits - 1957 Porsche 356A Speedster
+Left - Legendary: Car, worth 2800k credits - 2002 Ferrari Enzo Ferrari
 Center - Common: Credits - 30k
 Right - Common: Credits - 5k
 Left - Rare: Car, worth 54k credits - 1988 BMW M5
@@ -1153,7 +1153,7 @@ Left - Forza Edition: Car, wheelspin only, worth 492k credits - 2013 Bentley Con
 Center - Rare: Car, worth 94k credits - 2001 Audi RS 4 Avant
 Right - Common: Credits - 5k
 Left - Epic: Car, worth 600k credits - 2017 Tamo Racemo
-Center - Common: Credits - 10
+Center - Common: Credits - 10k
 Right - Common: Credits - 5k
 Left - Epic: Credits - 160k
 Center - Common: Credits - 10k
@@ -1259,7 +1259,6 @@ Center - Rare: Car, worth 125k credits - 1968 Dodge Dart HEMI Super Stock
 Right - Common: Credits - 10k
 Left - Forza Edition: Car, wheelspin only, worth 560k credits - 2012 Lamborghini Aventador LP700-4 Forza Edition
 Center - Rare: Car, worth 225k credits - 2013 Audi RS 7 Sportback
-Right - Common: Credits - k
 Left - Legendary: Credits - 250k
 Center - Common: Credits - 25k
 Right - Common: Credits - 25k
@@ -1431,7 +1430,6 @@ Right - Common: Credits - 25k
 Left - Common: Credits - 10k
 Center - Common: Credits - 5k
 Right - Epic: Car, worth 400k credits - 2017 Ford GT
-Left - Common: Credits - k
 Center - Rare: Car, worth 54k credits - 1988 BMW M5
 Right - Epic: Car, worth 150k credits - 2016 Lotus 3-Eleven
 Left - Epic: Car, worth 230k credits - 2014 Lamborghini Urus Concept
