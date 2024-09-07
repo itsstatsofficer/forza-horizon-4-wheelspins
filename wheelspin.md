@@ -84,3 +84,15 @@
 - Epic: Credits - 200k
 - Common: Car, worth 20k credits - 1991 Honda CR-X SiR
 - Common: Credits - 20k
+- Common: Car, worth 25k credits - 2001 Acura Integra Type-R
+- Rare: Credits - 100k
+- Rare: Clothing - Blue Tartan Rollups
+- Common: Credits - 5k
+- Common: Clothing - Yellow Hoodie
+- Common: Car, worth 36k credits - 1956 Ford F-100
+- Epic: Car, worth 100k credits - 2012 Jaguar XKR-S
+- Rare: Clothing - Autumn Mittens
+- Rare: Clothing - Sunset Polo
+- Common: Clothing - Rods and Customs Tee
+- Epic: Credits - 170k
+- Common: Car, worth 57k credits - 2015 Jaguar XE-S
