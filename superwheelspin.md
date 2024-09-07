@@ -1,3 +1,6 @@
 - Left - Common: Credits - 10k
 - Center - Epic: Car, worth 60k credits - 1969 Volkswagen Class 5 Bug
 - Right - Epic: Car, worth 420k credits - 2015 McLaren 650S Coupé
+- Left - Epic: Clothing - Tartan Rollups
+- Center - Common: Credits - 5k
+- Right - Rare: Car, worth 82k credits - 2008 BMW Z4 M Coupe

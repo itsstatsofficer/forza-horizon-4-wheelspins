@@ -42,8 +42,20 @@
 - Rare: Clothing - Purple Cargo Pants
 - Epic: Credits - 190k
 - Common: Car, worth 55k credits - 2017 Jaguar F-Pace S
+- Common: Car, worth 25k credits - 1990 Subaru Legacy RS
 - Rare: Clothing - Disco Boots
 - Common: Credits - 2k
 - Rare: Credits - 130k
 - Common: Credits - 40k
 - Rare: Car, worth 27k credits - 2011 Mazda RX-8 R3
+- Common: Clothing - Red Parka
+- Rare: Credits - 110k
+- Rare: Clothing - Red Wellies
+- Common: Credits - 30k
+- Rare: Credits - 75k
+- Common: Credits - 35k
+- Common: Credits - 5k
+- Common: Clothing - Black Pea Coat
+- Common: Clothing - Orange Turtleneck
+- Common: Credits - 60k
+- Common: Clothing - Yellow Boots
