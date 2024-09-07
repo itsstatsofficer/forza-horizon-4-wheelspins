@@ -55,12 +55,22 @@ I analyzed the regular wheelspins separately.
 I separated them in groups of 100 wheelspins,
 and counted the number of cosmetics, credit rewards, and cars in each group.
 
-![Evolution of the distribution as cosmetics are removed from the prize pool](cosmetics-evolution.png)
+![Evolution of the prize type distribution as cosmetics are removed from the prize pool](cosmetics-evolution-type.png)
 
 The number of cars stayed about the same,
 but the number of credit rewards increased.
 Therefore,
 it is clear that cosmetics are simply replaced with credit rewards.
+
+What about the rarities?
+The same process gives the following graph.
+
+![Evolution of the prize rarity distribution as cosmetics are removed from the prize pool](cosmetics-evolution-rarity.png)
+
+There seems to be a small shift towards more common prizes,
+but given the high overal variance,
+this may very well be due to random chance;
+i.e. I was just somewhat unlucky on the last 300 wheelspins.
 
 ### More details about the methodology
 

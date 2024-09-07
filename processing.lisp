@@ -174,35 +174,58 @@
 (defun super-wheelspin-p (record)
   (not (eq (record-wheelspin-type record) 'single)))
 
-(defun outcome-summary (record-list)
-  "Returns an association list mapping 'cosmetics 'credits 'autoshow 'wheelspin-only
-  to the corresponding proportions."
-  (let ((record-count (length record-list))
-        (cosmetics-count (count-if #'cosmetic-record-p record-list))
-        (autoshow-count (count-if #'autoshow-car-p record-list))
-        (wheelspin-only-count (count-if #'wheelspin-exclusive-car-p record-list))
-        (credits-count (count-if #'credits-record-p record-list)))
-    (list (cons 'cosmetics (/ cosmetics-count record-count))
-          (cons 'credits (/ credits-count record-count))
-          (cons 'autoshow (/ autoshow-count record-count))
-          (cons 'wheelspin-only (/ wheelspin-only-count record-count)))))
+(defun make-outcome-summary (record-list label-predicate-alist)
+  "Given an association list of labels to predicates,
+  returns an association list mapping the labels to the proportions of each predicate."
+  (let ((record-count (length record-list)))
+    (mapcar-alist (lambda (predicate) (/ (count-if predicate record-list) record-count))
+                  label-predicate-alist)))
+
+(defun outcome-type-summary (record-list)
+  "Returns an association list mapping \"Cosmetics\", \"Credits\", \"Autoshow cars\",
+  \"Wheelspin exclusives\" to the corresponding proportions."
+  (make-outcome-summary record-list
+                   (list (cons "Cosmetics" #'cosmetic-record-p)
+                         (cons "Credits" #'credits-record-p)
+                         (cons "Autoshow cars" #'autoshow-car-p)
+                         (cons "Wheelspin exclusives" #'wheelspin-exclusive-car-p))))
+
+(defun outcome-rarity-summary (record-list)
+  "Returns an association list mapping \"Common\", \"Rare\", \"Epic\", \"Legendary\",
+  \"Forza Edition\" to the corresponding proportions."
+  (make-outcome-summary
+    record-list
+    (list (cons "Common"        (lambda (record) (eq (record-rarity record) 'common)))
+          (cons "Rare"          (lambda (record) (eq (record-rarity record) 'rare)))
+          (cons "Epic"          (lambda (record) (eq (record-rarity record) 'epic)))
+          (cons "Legendary"     (lambda (record) (eq (record-rarity record) 'legendary)))
+          (cons "Forza Edition" (lambda (record) (eq (record-rarity record) 'forza-edition))))))
 
 ;;; Some interesting analyses
 (defparameter database (mapcar #'parse-data-line (read-data-file)))
-(defparameter regular-wheelspin-cosmetics-evolution
-  (mapcar #'outcome-summary (split-list 100 (remove-if #'super-wheelspin-p database))))
+(defparameter cosmetics-evolution-regular-wheelspin-type
+  (mapcar #'outcome-type-summary (split-list 100 (remove-if #'super-wheelspin-p database))))
+(defparameter cosmetics-evolution-regular-wheelspin-rarity
+  (mapcar #'outcome-rarity-summary (split-list 100 (remove-if #'super-wheelspin-p database))))
 
-(defun make-graph-outcome-evolution (outcome-list chunk-length)
+(defun make-graph-outcome-evolution (outcome-summary-list chunk-length)
   "Returns TikZ + PGFPlots code to display a list of outcome summaries,
-  like `regular-wheelspin-cosmetics-evolution`."
+  like the list `cosmetics-evolution-regular-wheelspin-type`."
   (let* ((tikz-template "
-            % Save this to chart.tex, then compile with
+            % Save this to chart.tex with e.g.
+            %   sbcl --noinform --load processing.lisp --eval '(format T cosmetics-type-outcome-evolution-tex-chart)' --quit > chart.tex
+            % then compile with
             %   pdflatex chart.tex
             %   pdftoppm chart.pdf chart -png -r 300
             \\documentclass{standalone}
             \\usepackage{tikz}
             \\usepackage{pgfplots}
             \\pgfplotsset{compat=1.18}
+            \\definecolor{fhcommon}{HTML}{44CC77}
+            \\definecolor{fhrare}{HTML}{33BBEE}
+            \\definecolor{fhepic}{HTML}{BB66EE}
+            \\definecolor{fhlegendary}{HTML}{FFCC33}
+            \\definecolor{fhfe}{HTML}{FF33FF} % Not quite the gradient but works
             \\begin{document}
             \\begin{tikzpicture}
             \\begin{axis}[
@@ -217,30 +240,36 @@
                     legend columns = -1,
                     axis y line* = left,
                     y dir = reverse,
+                    cycle list = {
+                        {black!50!fhcommon,fill=fhcommon},
+                        {black!50!fhrare,fill=fhrare},
+                        {black!50!fhepic,fill=fhepic},
+                        {black!50!fhlegendary,fill=fhlegendary},
+                        {black!70!fhfe,fill=fhfe} % Darker for slightly better readability
+                    },
                 ]
-                \\addplot coordinates {~A};
-                \\addplot coordinates {~A};
-                \\addplot coordinates {~A};
-                \\addplot coordinates {~A};
-                \\legend{Cosmetics,Credits,Autoshow cars,Wheelspin exclusives}
+                \\legend{~{~A~^,~}}
+                ~{\\addplot coordinates {~A};~}
             \\end{axis}
             \\end{tikzpicture}
             \\end{document}")
-         (make-label-list (lambda (key)
-                            (apply #'concatenate 'string
-                                   (loop for outcome in outcome-list for index from 1
-                                         collect (format nil "(~d,~d) "
-                                                         (* chunk-length (cdr (assoc key outcome)))
-                                                         (* chunk-length index))))))
-         (cosmetics-label-list (funcall make-label-list 'cosmetics))
-         (credits-label-list (funcall make-label-list 'credits))
-         (autoshow-label-list (funcall make-label-list 'autoshow))
-         (wheelspin-exclusives-label-list (funcall make-label-list 'wheelspin-only)))
-    (format nil tikz-template
-            cosmetics-label-list
-            credits-label-list
-            autoshow-label-list
-            wheelspin-exclusives-label-list)))
+         (keys (mapcar #'car (car outcome-summary-list))) ; Use the first row to get the key list
+         (make-coordinate (lambda (key outcome-summary index)
+                            (format nil "(~d,~d)"
+                                    (* chunk-length (cdr (assoc key outcome-summary :test #'equalp)))
+                                    (* chunk-length index))))
+         (outcome-coordinates-list
+           (loop for key in keys collect
+                 (format nil "~{~A~^ ~}"
+                         (loop for outcome-summary in outcome-summary-list
+                               for index from 1
+                               collect (funcall make-coordinate key outcome-summary index))))))
+    (format nil tikz-template keys outcome-coordinates-list)))
 
-(defparameter cosmetics-outcome-evolution-tex-chart
-  (make-graph-outcome-evolution (regular-wheelspin-cosmetics-evolution 100)))
+(defparameter cosmetics-type-outcome-evolution-tex-chart
+  ; Note: I manually removed the cycle list before generating cosmetics-evolution.png
+  (make-graph-outcome-evolution cosmetics-evolution-regular-wheelspin-type 100))
+
+(defparameter cosmetics-rarity-outcome-evolution-tex-chart
+  ; Note: this one is glitched, needs to manually add a dummy rarity before all others
+  (make-graph-outcome-evolution cosmetics-evolution-regular-wheelspin-rarity 100))
