@@ -274,7 +274,7 @@ Rare: Clothing - Blue Abstract Joggers
 Rare: Clothing - Fat Mollions Sweater
 Common: Credits - 10k
 Common: Clothing - Green Bomber
-Common: Car, worth 40k credits - 1945 Willis MB Jeep
+Common: Car, worth 40k credits - 1945 Willys MB Jeep
 Common: Car, worth 65k credits - 2016 Cadillac ATS-V
 Rare: Car, worth 70k credits - 1991 BMW M3
 Epic: Clothing - Glam Boots
@@ -411,7 +411,7 @@ Common: Credits - 2k
 Common: Credits - 10k
 Common: Clothing - Leather Slip-Ons
 Rare: Credits - 100k
-Common: Car, worth 25k credits - 2010 Polaris RZR XP 1000 EPS
+Common: Car, worth 25k credits - 2015 Polaris RZR XP 1000 EPS
 Epic: Clothing - Golden Cap
 Common: Car, worth 60k credits - 1976 Jeep CJ5 Renegade
 Rare: Credits - 125k
@@ -625,7 +625,7 @@ Rare: Car, worth 53k credits - 1970 Chevrolet Camaro Z28
 Rare: Car, worth 62k credits - 2015 Volvo V60 Polestar
 Rare: Car, worth 210k credits - 1970 Dodge Challenger R/T
 Common: Credits - 70k
-Common: Car, worth 55k credits - 2016 Toyota Hilux Arctic Trucks AT38
+Common: Car, worth 55k credits - 2007 Toyota Hilux Arctic Trucks AT38
 Common: Car, worth 25k credits - 1994 Nissan Silvia K's
 Common: Car, worth 35k credits - 1973 AMC Gremlin X
 Rare: Car, worth 120k credits - 2017 Alfa Romeo Giulia Quadrifoglio
@@ -1075,7 +1075,7 @@ Left - Legendary: Credits - 300k
 Center - Common: Credits - 15k
 Right - Common: Car, worth 43.5k credits - 2017 Abarth 124 Spider
 Left - Rare: Car, worth 78k credits - 2012 Mercedes-Benz SLK 55 AMG
-Center - Common: Car, worth 25k credits - 2010 Polaris RZR XP 1000 EPS
+Center - Common: Car, worth 25k credits - 2015 Polaris RZR XP 1000 EPS
 Right - Forza Edition: Car, wheelspin only, worth 332k credits - 2013 Caterham Superlight R500 Forza Edition
 Left - Common: Car, worth 70k credits - 1966 Chevrolet Nova Super Sport
 Center - Rare: Car, worth 300k credits - 1965 Alfa Romeo Giulia Sprint GTA Stradale
@@ -1476,3 +1476,334 @@ Center - Epic: Car, worth 200k credits - 2011 Mercedes-Benz SLS AMG
 Right - Legendary: Credits - 400k
 Rare: Car, worth 150k credits - 1969 Nissan Fairlady Z 432
 Common: Credits - 5k
+Common: Car, worth 40k credits - 1945 Willys MB Jeep
+Rare: Car, worth 156k credits - 2010 Maserati Gran Turismo S
+Epic: Car, worth 45k credits - 1971 Ford Mustang Mach 1
+Common: Credits - 20k
+Rare: Car, worth 27k credits - 2011 Mazda RX-8 R3
+Common: Car, worth 55k credits - 2000 Ford SVT Cobra R
+Common: Car, worth 25k credits - 2015 Polaris RZR XP 1000 EPS
+Common: Car, worth 20k credits - 1959 Ford Anglia 105E
+Common: Credits - 15k
+Rare: Credits - 100k
+Common: Car, worth 35k credits - 1997 BMW M3
+Epic: Credits - 160k
+Epic: Credits - 190k
+Common: Car, worth 63k credits - 2017 Ford F-150 Raptor
+Common: Car, worth 25k credits - 1998 Volkswagen GTI VR6 Mk3
+Common: Credits - 15k
+Epic: Credits - 170k
+Common: Car, worth 25k credits - 2010 Renault Clio R.S.
+Rare: Credits - 110k
+Common: Credits - 35k
+Rare: Credits - 120k
+Common: Credits - 5k
+Common: Credits - 20k
+Common: Car, worth 25k credits - 1970 Datsun 510
+Common: Credits - 15k
+Rare: Car, worth 85k credits - 1993 Nissan Skyline GT-R V-Spec
+Common: Car, worth 45k credits - 1949 Mercury Coupe
+Common: Credits - 15k
+Common: Credits - 20k
+Common: Credits - 5k
+Rare: Car, worth 74k credits - 2014 Alfa Romeo 4C
+Epic: Credits - 150k
+Common: Credits - 2k
+Rare: Credits - 75k
+Rare: Credits - 100k
+Common: Credits - 30k
+Common: Credits - 10k
+Common: Credits - 15k
+Rare: Credits - 100k
+Epic: Car, worth 95k credits - 2013 Dodge SRT Viper GTS
+Common: Credits - 10k
+Epic: Credits - 175k
+Common: Car, worth 48k credits - 2008 BMW M3
+Common: Credits - 5k
+Common: Credits - 7k
+Common: Credits - 2k
+Common: Credits - 10k
+Common: Credits - 10k
+Common: Credits - 7k
+Epic: Credits - 200k
+Common: Credits - 10k
+Common: Credits - 7k
+Common: Credits - 25k
+Common: Credits - 4k
+Common: Credits - 60k
+Epic: Credits - 160k
+Rare: Car, worth 35k credits - 1989 Porsche 944 Turbo
+Common: Credits - 2k
+Common: Credits - 5k
+Common: Credits - 7k
+Common: Credits - 7k
+Rare: Car, worth 65k credits - 1969 Oldsmobile Hurst/Olds 442
+Common: Credits - 60k
+Common: Car, worth 57k credits - 1971 Lotus Elan Sprint
+Common: Credits - 10k
+Epic: Car, worth 190k credits - 1994 Ferrari F355 Berlinetta
+Common: Credits - 5k
+Common: Credits - 2k
+Common: Credits - 10k
+Common: Credits - 5k
+Common: Credits - 5k
+Common: Car, worth 20k credits - 1985 Morris Minor 1000
+Common: Credits - 10k
+Common: Credits - 5k
+Common: Credits - 2k
+Common: Credits - 2k
+Common: Credits - 10k
+Common: Credits - 10k
+Common: Credits - 5k
+Rare: Car, worth 50k credits - 2015 Infiniti Q60 Concept
+Common: Credits - 5k
+Common: Credits - 1k
+Common: Credits - 20k
+Rare: Credits - 100k
+Legendary: Car, worth 10000k credits - 1939 Mercedes-Benz W154
+Common: Credits - 5k
+Epic: Credits - 170k
+Common: Credits - 10k
+Common: Credits - 10k
+Common: Car, worth 25k credits - 1990 Jaguar XJ-S
+Epic: Credits - 175k
+Common: Credits - 10k
+Common: Credits - 2k
+Common: Credits - 10k
+Common: Credits - 5k
+Epic: Credits - 150k
+Rare: Car, worth 60k credits - 2015 Ford Falcon GT F 351
+Common: Credits - 50k
+Common: Credits - 15k
+Common: Credits - 5k
+Common: Credits - 20k
+Common: Credits - 2k
+Rare: Car, wheelspin only, worth 42k credits - 2011 Ford F-150 SVT Raptor
+Common: Credits - 5k
+Common: Credits - 15k
+Rare: Credits - 120k
+Epic: Credits - 180k
+Common: Car, worth 25k credits - 2017 FIAT 124 Sport Spider
+Rare: Credits - 140k
+Common: Credits - 2k
+Common: Credits - 10k
+Common: Car, worth 29k credits - 2013 Renault Clio R.S. 200 EDC
+Rare: Credits - 110k
+Common: Credits - 2k
+Common: Credits - 5k
+Common: Credits - 45k
+Common: Credits - 5k
+Common: Credits - 10k
+Common: Credits - 10k
+Common: Credits - 20k
+Common: Car, worth 80k credits - 1959 Jaguar Mk II 3.8
+Common: Credits - 7k
+Common: Credits - 15k
+Common: Credits - 5k
+Epic: Credits - 180k
+Common: Credits - 10k
+Epic: Credits - 200k
+Rare: Credits - 130k
+Common: Car, worth 30k credits - 2003 BMW M5
+Common: Car, worth 20k credits - 1991 Honda CR-X SiR
+Common: Car, worth 25k credits - 1992 Nissan Silvia Club K's
+Common: Credits - 10k
+Common: Credits - 5k
+Common: Credits - 30k
+Common: Credits - 2k
+Common: Credits - 10k
+Epic: Car, worth 45k credits - 1971 Ford Mustang Mach 1
+Rare: Car, worth 53k credits - 1970 Chevrolet Camaro Z28
+Rare: Car, worth 78k credits - 2012 Mercedes-Benz SLK 55 AMG
+Forza Edition: Car, wheelspin only, worth 330k credits - 1972 Ford Falcon XA GT-HO Forza Edition
+Epic: Credits - 200k
+Common: Credits - 25k
+Rare: Car, worth 112k credits - 2012 BMW M5
+Common: Credits - 2k
+Common: Credits - 5k
+Common: Credits - 70k
+Common: Car, worth 20k credits - 1958 Austin-Healey Sprite MkI
+Common: Credits - 2k
+Epic: Car, wheelspin only, worth 130k credits - 2009 Lotus 2-Eleven
+Common: Credits - 10k
+Epic: Car, worth 220k credits - 1988 Lamborghini Countach LP5000 QV
+Common: Credits - 15k
+Common: Credits - 2k
+Common: Credits - 50k
+Rare: Car, worth 40k credits - 2000 Lotus 340R
+Common: Car, worth 30k credits - 2010 Renault Megane R.S. 250
+Epic: Credits - 160k
+Common: Credits - 10k
+Common: Car, worth 40k credits - 1945 Willys MB Jeep
+Rare: Car, worth 60k credits - 2017 Chevrolet Camaro ZL1
+Common: Credits - 5k
+Common: Car, worth 25k credits - 2002 Acura RSX Type-S
+Common: Car, worth 30k credits - 2003 BMW M5
+Common: Credits - 7k
+Epic: Credits - 150k
+Common: Car, worth 25k credits - 1981 Ford Fiesta XR2
+Common: Credits - 10k
+Common: Credits - 25k
+Common: Credits - 10k
+Common: Credits - 15k
+Epic: Credits - 160k
+Right - Rare: Car, worth 58k credits - 2011 BMW Z4 sDrive35is
+Rare: Credits - 140k
+Right - Epic: Car, worth 300k credits - 1978 Hoonigan Ford Escort RS1800
+Common: Credits - 5k
+Rare: Car, worth 75k credits - 2014 HSV Gen-F GTS
+Epic: Car, worth 315k credits - 2018 Porsche 911 GT2 RS
+Common: Car, worth 25k credits - 1993 Nissan 240SX SE
+Legendary: Car, worth 135k credits - 1953 Chevrolet Corvette
+Common: Credits - 10k
+Common: Credits - 2k
+Common: Car, worth 20k credits - 1972 Land Rover Series III
+Common: Credits - 5k
+Common: Credits - 20k
+Common: Credits - 15k
+Common: Car, worth 38k credits - 2015 Honda Civic Type R
+Rare: Credits - 140k
+Common: Car, worth 25k credits - 1990 Subaru Legacy RS
+Common: Credits - 40k
+Common: Car, worth 32k credits - 2013 Subaru BRZ
+Common: Car, worth 20k credits - 1995 Volkswagen Corrado VR6
+Epic: Credits - 200k
+Common: Credits - 10k
+Rare: Credits - 110k
+Common: Credits - 7k
+Common: Credits - 5k
+Epic: Car, worth 100k credits - 2012 Jaguar XKR-S
+Common: Credits - 5k
+Common: Car, worth 25k credits - 1990 Jaguar XJ-S
+Common: Credits - 5k
+Rare: Credits - 125k
+Rare: Credits - 110k
+Common: Car, worth 44k credits - 1940 Ford De Luxe Coupe
+Common: Credits - 2k
+Rare: Credits - 100k
+Epic: Credits - 180k
+Common: Credits - 15k
+Common: Credits - 10k
+Common: Credits - 10k
+Common: Credits - 5k
+Common: Credits - 5k
+Common: Credits - 20k
+Epic: Car, worth 50k credits - 1992 Hoonigan Mazda RX-7 Twerkstallion
+Rare: Car, worth 50k credits - 2014 Volkswagen Golf R
+Common: Car, worth 25k credits - 1994 Mazda MX-5 Miata
+Common: Car, worth 20k credits - 1981 Volksvaget Scirocco S
+Rare: Car, worth 156k credits - 2010 Maserati Gran Turismo S
+Common: Credits - 1k
+Common: Credits - 7k
+Common: Credits - 10k
+Common: Car, worth 46k credits - 2018 Kia Stinger
+Common: Credits - 2k
+Common: Credits - 20k
+Legendary: Car, worth 2000k credits - 1995 Ferrari F50
+Rare: Car, worth 70k credits - 1990 Vauxhall Lotus Carlton
+Rare: Credits - 130k
+Common: Credits - 5k
+Common: Credits - 5k
+Common: Credits - 7k
+Epic: Credits - 180k
+Rare: Car, worth 65k credits - 1969 Oldsmobile Hurst/Olds 442
+Common: Credits - 5k
+Common: Credits - 2k
+Common: Credits - 5k
+Common: Credits - 10k
+Common: Car, worth 35k credits - 1997 Mazda RX-7
+Common: Credits - 5k
+Rare: Credits - 100k
+Common: Credits - 10k
+Common: Car, worth 20k credits - 1983 Volkswagen Golf GTI
+Common: Credits - 20k
+Common: Credits - 60k
+Common: Credits - 5k
+Rare: Car, worth 27k credits - 2011 Mazda RX-8 R3
+Common: Credits - 20k
+Common: Credits - 20k
+Rare: Car, worth 35k credits - 1989 Porsche 944 Turbo
+Common: Car, worth 25k credits - 2015 Polaris RZR XP 1000 EPS
+Rare: Car, wheelspin only, worth 66k credits - 2010 Audi TT RS Coupé
+Epic: Credits - 170k
+Common: Credits - 5k
+Common: Credits - 5k
+Common: Credits - 15k
+Common: Car, worth 55k credits - 2007 Toyota Hilux Arctic Trucks AT38
+Common: Credits - 15k
+Rare: Car, worth 120k credits - 1954 Jaguar XK120 SE
+Rare: Car, worth 80k credits - 1970 Chevrolet Chevelle Super Sport 454
+Epic: Car, worth 190k credits - 2016 Jaguar F-Type Project 7
+Epic: Credits - 175k
+Rare: Car, worth 20k credits - 2003 Volkswagen Golf R32
+Rare: Credits - 90k
+Common: Credits - 5k
+Common: Credits - 4k
+Common: Credits - 2k
+Common: Credits - 5k
+Common: Credits - 5k
+Common: Credits - 10k
+Legendary: Credits - 250k
+Rare: Credits - 75k
+Common: Car, worth 25k credits - 1992 Nissan Silvia Club K's
+Common: Credits - 40k
+Rare: Credits - 120k
+Common: Credits - 10k
+Rare: Credits - 130k
+Common: Credits - 5k
+Epic: Credits - 190k
+Common: Credits - 10k
+Common: Credits - 15k
+Epic: Car, worth 550k credits - 1995 Porsche 911 GT2
+Rare: Car, worth 50k credits - 2015 Infiniti Q60 Concept
+Common: Credits - 60k
+Common: Credits - 5k
+Common: Credits - 5k
+Common: Car, worth 25k credits - 1983 GMC Vandura G-1500
+Common: Credits - 5k
+Common: Credits - 10k
+Common: Credits - 15k
+Common: Credits - 5k
+Rare: Car, worth 90k credits - 2016 Mercedes-AMG C 63 S Coupé
+Common: Credits - 2k
+Common: Credits - 15k
+Common: Credits - 30k
+Rare: Credits - 100k
+Common: Credits - 10k
+Common: Credits - 5k
+Rare: Credits - 120k
+Legendary: Credits - 1000k
+Common: Credits - 35k
+Common: Credits - 7k
+Epic: Credits - 150k
+Rare: Credits - 100k
+Common: Credits - 20k
+Epic: Credits - 190k
+Common: Car, worth 35k credits - 1973 AMC Gremlin X
+Common: Credits - 20k
+Common: Credits - 2k
+Common: Credits - 7k
+Common: Credits - 15k
+Epic: Credits - 170k
+Common: Credits - 5k
+Common: Car, worth 35k credits - 2015 Audi S1
+Rare: Credits - 125k
+Common: Credits - 10k
+Common: Credits - 5k
+Common: Credits - 15k
+Common: Car, worth 35k credits - 1968 Abarth 595 Esseesse
+Rare: Car, worth 65k credits - 1970 Chevrolet El Camino Super Sport 454
+Common: Credits - 15k
+Common: Credits - 10k
+Rare: Car, worth 86k credits - 2015 Chevrolet Camaro Z/28
+Epic: Credits - 175k
+Common: Credits - 45k
+Common: Car, worth 35k credits - 1955 Chevrolet 150 Utility Sedan
+Rare: Credits - 75k
+Common: Credits - 7k
+Common: Credits - 2k
+Common: Credits - 7k
+Rare: Credits - 100k
+Common: Credits - 5k
+Common: Credits - 15k
+Common: Credits - 10k
