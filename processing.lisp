@@ -241,3 +241,6 @@
             credits-label-list
             autoshow-label-list
             wheelspin-exclusives-label-list)))
+
+(defparameter cosmetics-outcome-evolution-tex-chart
+  (make-graph-outcome-evolution (regular-wheelspin-cosmetics-evolution 100)))
