@@ -100,7 +100,7 @@ I rolled six cars worth over one million credits on regular wheelspins:
 - regular wheelspin #294, worth 1.2 million credits, the 1954 Mercedes-Benz 300 SL Coupé;
 - regular wheelspin #590, worth 2.3 million credits, the 2016 Lamborghini Centenario LP 770-4;
 - regular wheelspin #791, worth 10 million credits, the 1939 Mercedes-Benz W154; and
-- regular wheelspin #928, worth 2.0 million credits, the 1995 Ferrari F50.
+- regular wheelspin #930, worth 2.0 million credits, the 1995 Ferrari F50.
 
 Removing the outliers gives the following (combined) graph:
 

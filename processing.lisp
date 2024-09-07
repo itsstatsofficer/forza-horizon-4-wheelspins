@@ -339,12 +339,14 @@
 
 (defparameter cosmetics-value-outcome-evolution-tex-chart
   ; I manually split this chart in two, for better readability.
+  ; I added `ymin = 37500` to the first chart to fix the discontinuity line.
   ; In the second chart,
   ; I also used the PGFPlots option `cycle list shift = 1` to get different colors
   ; and `ymin = 0` to remove axis discontinuity.
   (make-linear-plot-outcome-evolution cosmetics-evolution-regular-wheelspin-value 100))
 
 (defparameter cosmetics-evolution-regular-wheelspin-value-no-outliers
+  ; First split the database in 100-record chunks, then remove the outliers from each chunk.
   (make-linear-plot-outcome-evolution
     (mapcar #'outcome-value-summary
             (mapcar (lambda (record-list)
