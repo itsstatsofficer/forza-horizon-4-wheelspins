@@ -1,0 +1,6 @@
+- Rare: Credits - 130k
+- Common: Car, worth 28k credits, wheelspin only - 1993 Ford SVT Cobra R
+- Rare: Car, worth 74k credits - 2014 Alfa Romeo 4C
+- Common: Credits - 2k
+- Legendary: Car, worth 140k credits - 1956 Lotus Eleven
+- Common: Clothing - Colby Leather Sweater, I think?
