@@ -24,3 +24,26 @@
 - Forza Edition: Car, wheelspin only, worth 316k credits - 1980 Renault 5 Turbo Forza Edition
 - Epic: Clothing - Golden Canvas
 - Epic: Credits - 170k
+- Common: Credits - 15k
+- Common: Credits - 10k
+- Rare: Car, worth 73k credits - 1973 Ford Escort RS1600
+- Common: Car, worth 20k credits - 1958 Austin-Healey Sprite MkI
+- Epic: Car, worth 150k credits - 2016 Dodge Viper ACR
+- Common: Car, worth 50k credits - 2016 Nissan Titan Warrior Concept
+- Rare: Clothing - Houndstooth Pea Coat'
+- Common: Credits - 20k
+- Rare: Credits - 100k
+- Rare: Credits - 75k
+- Common: Credits - 20k
+- Common: Credits - 15k
+- Common: Car, worth 35k credits - 2003 Nissan Fairlady Z
+- Epic: Credits - 180k
+- Rare: Clothing - Floral Shirt
+- Rare: Clothing - Purple Cargo Pants
+- Epic: Credits - 190k
+- Common: Car, worth 55k credits - 2017 Jaguar F-Pace S
+- Rare: Clothing - Disco Boots
+- Common: Credits - 2k
+- Rare: Credits - 130k
+- Common: Credits - 40k
+- Rare: Car, worth 27k credits - 2011 Mazda RX-8 R3
