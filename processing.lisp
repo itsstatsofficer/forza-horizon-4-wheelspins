@@ -159,16 +159,18 @@
                  super-wheelspin rarity wheelspin-only value (record-description record))))))
 
 ;;; Actual data processing
-(defun cosmetic-record-p (record)
+(defun record-cosmetic-p (record)
   (or (eq (record-type record) 'clothing)
       (eq (record-type record) 'horn)))
-(defun credits-record-p (record)
+(defun record-credits-p (record)
   (eq (record-type record) 'credits))
-(defun autoshow-car-p (record)
-  (and (eq (record-type record) 'car)
+(defun record-car-p (record)
+  (eq (record-type record) 'car))
+(defun record-autoshow-car-p (record)
+  (and (record-car-p record)
        (not (record-wheelspin-only-p record))))
-(defun wheelspin-exclusive-car-p (record)
-  (and (eq (record-type record) 'car)
+(defun record-wheelspin-exclusive-car-p (record)
+  (and (record-car-p record)
        (record-wheelspin-only-p record)))
 
 (defun super-wheelspin-p (record)
@@ -185,10 +187,10 @@
   "Returns an association list mapping \"Cosmetics\", \"Credits\", \"Autoshow cars\",
   \"Wheelspin exclusives\" to the corresponding proportions."
   (make-outcome-summary record-list
-                   (list (cons "Cosmetics" #'cosmetic-record-p)
-                         (cons "Credits" #'credits-record-p)
-                         (cons "Autoshow cars" #'autoshow-car-p)
-                         (cons "Wheelspin exclusives" #'wheelspin-exclusive-car-p))))
+                   (list (cons "Cosmetics" #'record-cosmetic-p)
+                         (cons "Credits" #'record-credits-p)
+                         (cons "Autoshow cars" #'record-autoshow-car-p)
+                         (cons "Wheelspin exclusives" #'record-wheelspin-exclusive-car-p))))
 
 (defun outcome-rarity-summary (record-list)
   "Returns an association list mapping \"Common\", \"Rare\", \"Epic\", \"Legendary\",
@@ -201,16 +203,31 @@
           (cons "Legendary"     (lambda (record) (eq (record-rarity record) 'legendary)))
           (cons "Forza Edition" (lambda (record) (eq (record-rarity record) 'forza-edition))))))
 
+(defun outcome-value-if (predicate record-list)
+  "Returns the average value of the records in the list matching the predicate."
+  (round (/ (reduce #'+ record-list :key (lambda (record)
+                                        (if (funcall predicate record) (record-value record) 0)))
+         (count-if predicate record-list))))
+
+(defun outcome-value-summary (record-list)
+  "Returns an association list mapping \"Credits\" and \"Cars\"
+  to the average of the corresponding values."
+  (list (cons "Credits" (outcome-value-if #'record-credits-p record-list))
+        (cons "Cars" (outcome-value-if #'record-car-p record-list))))
+
 ;;; Some interesting analyses
 (defparameter database (mapcar #'parse-data-line (read-data-file)))
 (defparameter cosmetics-evolution-regular-wheelspin-type
   (mapcar #'outcome-type-summary (split-list 100 (remove-if #'super-wheelspin-p database))))
 (defparameter cosmetics-evolution-regular-wheelspin-rarity
   (mapcar #'outcome-rarity-summary (split-list 100 (remove-if #'super-wheelspin-p database))))
+(defparameter cosmetics-evolution-regular-wheelspin-value
+  (mapcar #'outcome-value-summary (split-list 100 (remove-if #'super-wheelspin-p database))))
 
-(defun make-graph-outcome-evolution (outcome-summary-list chunk-length)
+(defun make-bar-plot-outcome-evolution (outcome-summary-list chunk-length)
   "Returns TikZ + PGFPlots code to display a list of outcome summaries,
-  like the list `cosmetics-evolution-regular-wheelspin-type`."
+  like the list `cosmetics-evolution-regular-wheelspin-type`.
+  Each value is assumed to be a percentage, expressed as a number between 0 and 1."
   (let* ((tikz-template "
             % Save this to chart.tex with e.g.
             %   sbcl --noinform --load processing.lisp --eval '(format T cosmetics-type-outcome-evolution-tex-chart)' --quit > chart.tex
@@ -268,8 +285,71 @@
 
 (defparameter cosmetics-type-outcome-evolution-tex-chart
   ; Note: I manually removed the cycle list before generating cosmetics-evolution.png
-  (make-graph-outcome-evolution cosmetics-evolution-regular-wheelspin-type 100))
+  (make-bar-plot-outcome-evolution cosmetics-evolution-regular-wheelspin-type 100))
 
 (defparameter cosmetics-rarity-outcome-evolution-tex-chart
   ; Note: this one is glitched, needs to manually add a dummy rarity before all others
-  (make-graph-outcome-evolution cosmetics-evolution-regular-wheelspin-rarity 100))
+  (make-bar-plot-outcome-evolution cosmetics-evolution-regular-wheelspin-rarity 100))
+
+(defun make-linear-plot-outcome-evolution (outcome-summary-list chunk-length)
+  "Like make-bar-plot-outcome-evolution, but a line graph instead.
+  It is also transposed compared to that function,
+  and numbers are not assumed to simply be percentages."
+  (let* ((tikz-template "
+            \\documentclass{standalone}
+            \\usepackage{tikz}
+            \\usepackage{pgfplots}
+            \\pgfplotsset{compat=1.18}
+            \\begin{document}
+            \\begin{tikzpicture}
+            \\begin{axis}[
+                    sharp plot,
+                    xtick = data,
+                    x tick label style = {rotate = 45, anchor = north east},
+                    scaled y ticks = base 10:-3,
+                    yticklabel = {\\pgfmathprintnumber{\\tick}k},
+                    ytick scale label code/.code = {},
+                    axis x line* = left,
+                    axis y discontinuity = parallel,
+                    axis y line* = left,
+                    ylabel = {Value},
+                    legend style = {
+                        at = {(0.5,-0.15)},
+                        anchor = north,
+                    },
+                    legend columns = -1,
+                ]
+                \\legend{~{~A~^,~}}
+                ~{\\addplot coordinates {~A};~}
+            \\end{axis}
+            \\end{tikzpicture}
+            \\end{document}")
+         (keys (mapcar #'car (car outcome-summary-list)))
+         (make-coordinate (lambda (key outcome-summary index)
+                            (format nil "(~d,~d)"
+                                    (* chunk-length index) ; First index, compared to before
+                                    (cdr (assoc key outcome-summary :test #'equalp)))))
+         (outcome-coordinates-list
+           (loop for key in keys collect
+                 (format nil "~{~A~^ ~}"
+                         (loop for outcome-summary in outcome-summary-list
+                               for index from 1
+                               collect (funcall make-coordinate key outcome-summary index))))))
+    (format nil tikz-template keys outcome-coordinates-list)))
+
+(defparameter cosmetics-value-outcome-evolution-tex-chart
+  ; I manually split this chart in two, for better readability.
+  ; In the second chart,
+  ; I also used the PGFPlots option `cycle list shift = 1` to get different colors
+  ; and `ymin = 0` to remove axis discontinuity.
+  (make-linear-plot-outcome-evolution cosmetics-evolution-regular-wheelspin-value 100))
+
+(defparameter cosmetics-evolution-regular-wheelspin-value-no-outliers
+  (make-linear-plot-outcome-evolution
+    (mapcar #'outcome-value-summary
+            (mapcar (lambda (record-list)
+                      (remove-if (lambda (record) (and (record-value record)
+                                                  (>= (record-value record) 1000000)))
+                                 record-list))
+                    (split-list 100 (remove-if #'super-wheelspin-p database))))
+    100))

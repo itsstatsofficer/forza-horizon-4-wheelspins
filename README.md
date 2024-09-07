@@ -29,13 +29,14 @@ Analysis
 ========
 
 I recorded 1809 entries in `wheelspin.md`.
-I recorded each entry in the same order in which I opened the wheelspins.
+I recorded each entry in the same order in which I spun the wheelspins
+(i.e. opened the lootboxes)
 This means that,
 roughly speaking,
-I opened 700 regular wheelspins,
-then I opened 250 super wheelspins
+I spun 700 regular wheelspins,
+then I supn over 250 super wheelspins
 (generating 750 entries),
-then I opened another 300 regular wheelspins.
+then finally I spun another 300 regular wheelspins.
 
 How Cosmetics Affect the Prize Distribution
 -------------------------------------------
@@ -72,7 +73,52 @@ but given the high overal variance,
 this may very well be due to random chance;
 i.e. I was just somewhat unlucky on the last 300 wheelspins.
 
-### More details about the methodology
+For the average value of the wheelspin outcomes,
+the answer is more nuanced.
+The chart below splits between the credit rewards and the cars.
+
+![Evolution of the average prize value as cosmetics are removed from the prize pool](cosmetics-evolution-value.png)
+
+The credit rewards sooms to be trending downwards.
+This trend is actually slightly masked by two outliers in the 600 and 700 wheelspins marks
+(corresponding, respectively,
+to wheelspins 501 to 600,
+and 601 to 700):
+I got one legendary one-million-credits wheelspin in each case.
+If I remove the two outliers,
+the two marks sitting slightly above 55k drops to 42194 and 40836,
+respectively.
+
+For the cars,
+the big spike at 800 is also due to an outlier:
+the 1939 Mercedes-Benz W154,
+which is worth 10 million credits.
+Overall,
+I rolled six cars worth over one million credits on regular wheelspins:
+- regular wheelspin #9, worth 2.1 million credits, the 1965 Shelby Cobra 427 S/C;
+- regular wheelspin #112, worth 3.1 million credits, the 1984 Ferrari 288 GTO;
+- regular wheelspin #294, worth 1.2 million credits, the 1954 Mercedes-Benz 300 SL Coupé;
+- regular wheelspin #590, worth 2.3 million credits, the 2016 Lamborghini Centenario LP 770-4;
+- regular wheelspin #791, worth 10 million credits, the 1939 Mercedes-Benz W154; and
+- regular wheelspin #928, worth 2.0 million credits, the 1995 Ferrari F50.
+
+Removing the outliers gives the following (combined) graph:
+
+![Evolution of the average prize value as cosmetics are removed from the prize pool](cosmetics-evolution-value-no-outliers.png)
+
+The average value of the credit rewards can be clearly seen to trend downwards.
+I'm not sure why this happens.
+My conjecture is that,
+since I mostly obtained common-rarity cosmetics from those regular wheelspins,
+they are replaced mostly with common credit rewards,
+who pull the average down.
+That,
+or cosmetics are simply replaced with low-value credit rewards.
+
+The average value of the cars still has significant variance,
+but does not seem to be trending upwards nor downwards.
+
+### More details about the dataset
 
 I already had unlocked a significant fraction of the wheelspin-obtainable cosmetics
 before I started recording wheelspins.
