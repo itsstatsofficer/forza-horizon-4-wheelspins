@@ -1,5 +1,23 @@
 ; Tools for parsing and processing the data in `wheelspin.md`.
 
+;;; Utilities
+(defun split-list (chunk-length list)
+  "Splits the list into consecutive chunks; returns a list of length-n lists."
+  ; TODO: optionally return any leftovers if (length l) is not a multiple of chunk-length
+  (let ((suffix (nthcdr chunk-length list)))
+    (if (not suffix)
+        nil
+        (cons (subseq list 0 chunk-length)
+              (split-list chunk-length suffix)))))
+
+(defun mapcar-alist (function alist)
+  "Like mapcar, but considers alist an association list, and applies the function to the values."
+  (mapcar (lambda (pair)
+            (cons (car pair)
+                  (funcall function (cdr pair))))
+          alist))
+
+;;; Functions for handling the data file
 (defparameter data-file-name "./wheelspin.md")
 
 (defun read-data-file ()
@@ -18,6 +36,8 @@
    "Right - Common: Credits - 15k"
    "Forza Edition: Car, wheelspin only, worth 330k credits - 1972 Ford Falcon XA GT-HO Forza Edition"
    "Common: Clothing - All Black Canvas"))
+
+;;; Parsing
 
 ; Parsing output format: (rarity type value-or-nil wheelspin-only? description wheelspin-type)
 ; type: one of 'car 'credits 'clothing 'horn
@@ -111,3 +131,32 @@
     (credits (format nil "~A~ACredits - ~dk" super-wheelspin rarity value))
     (car (format nil "~A~ACar, ~Aworth ~dk credits - ~A"
                  super-wheelspin rarity wheelspin-only value (record-description record))))))
+
+;;; Actual data processing
+(defun cosmetic-record-p (record)
+  (or (eq (record-type record) 'clothing)
+      (eq (record-type record) 'horn)))
+(defun credits-record-p (record)
+  (eq (record-type record) 'credits))
+(defun autoshow-car-p (record)
+  (and (eq (record-type record) 'car)
+       (not (record-wheelspin-only-p record))))
+(defun wheelspin-exclusive-car-p (record)
+  (and (eq (record-type record) 'car)
+       (record-wheelspin-only-p record)))
+
+(defun super-wheelspin-p (record)
+  (not (eq (record-wheelspin-type record) 'single)))
+
+(defun outcome-summary (record-list)
+  "Returns an association list mapping 'cosmetics 'credits 'autoshow 'wheelspin-only
+  to the corresponding proportions."
+  (let ((record-count (length record-list))
+        (cosmetics-count (count-if #'cosmetic-record-p record-list))
+        (autoshow-count (count-if #'autoshow-car-p record-list))
+        (wheelspin-only-count (count-if #'wheelspin-exclusive-car-p record-list))
+        (credits-count (count-if #'credits-record-p record-list)))
+    (list (cons 'cosmetics (/ cosmetics-count record-count))
+          (cons 'credits (/ credits-count record-count))
+          (cons 'autoshow (/ autoshow-count record-count))
+          (cons 'wheelspin-only (/ wheelspin-only-count record-count)))))
