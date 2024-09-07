@@ -12,7 +12,7 @@
 ; for cars that _can_ be purchased from the Autoshow,
 ; I record their value and the name of the car
 ; (like "Legendary: Car, worth 140k credits - 1956 Lotus Eleven").
-; Cars than _cannot_ be purchased from the Autoshow say "wheelspin only" after "Car"
+; Cars that _cannot_ be purchased from the Autoshow say "wheelspin only" after "Car"
 ; ("Common: Car, wheelspin only, worth 28k credits - 1993 Ford SVT Cobra R").
 ; The value of the car comes from <https://forza.fandom.com/wiki/Forza_Horizon_4/Cars>.
 ;
