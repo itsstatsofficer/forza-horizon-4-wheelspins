@@ -1,5 +1,5 @@
 - Rare: Credits - 130k
-- Common: Car, worth 28k credits, wheelspin only - 1993 Ford SVT Cobra R
+- Common: Car, wheelspin only, worth 28k credits - 1993 Ford SVT Cobra R
 - Rare: Car, worth 74k credits - 2014 Alfa Romeo 4C
 - Common: Credits - 2k
 - Legendary: Car, worth 140k credits - 1956 Lotus Eleven
@@ -21,3 +21,4 @@
 - Common: Clothing - White Shorts
 - Epic: Credits - 230k
 - Rare: Credits - 75k
+- Forza Edition: Car, wheelspin only, worth 316k credits - 1980 Renault 5 Turbo Forza Edition
