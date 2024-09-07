@@ -20,14 +20,14 @@
    "Common: Clothing - All Black Canvas"))
 
 ; Parsing output format: (rarity type value-or-nil wheelspin-only? description wheelspin-type)
-; type: one of 'car 'credits 'cosmetic
+; type: one of 'car 'credits 'clothing 'horn
 ; rarity: one of 'common 'rare 'epic 'legendary 'forza-edition
 ; value: either a number or nil (for cosmetics)
 ; wheelspin-only?: T or nil
 ; description: string describing the object
 ; wheelspin-type: one of 'left 'center 'right for super wheelspins, 'single for regular wheelspins
-(setf (fdefinition 'record-type) #'first)
-(setf (fdefinition 'record-rarity) #'second)
+(setf (fdefinition 'record-rarity) #'first)
+(setf (fdefinition 'record-type) #'second)
 (setf (fdefinition 'record-value) #'third)
 (setf (fdefinition 'record-wheelspin-only-p) #'fourth)
 (setf (fdefinition 'record-description) #'fifth)
@@ -35,7 +35,7 @@
 
 (defun parse-data-line-car (line)
   "Parses \"Car, wheelspin only, worth 28k credits - 1993 Ford SVT Cobra R\" into '(28000 T \"1993 Ford SVT Cobra R\")"
-  (let* ((wheelspin-only? (not (search "wheelspin only" line)))
+  (let* ((wheelspin-only? (not (not (search "wheelspin only" line))))
          (position-of-word-worth (search "worth" line))
          (credits-value-start (+ position-of-word-worth (length "worth")))
          (credits-value-end (position #\k line :start credits-value-start))
@@ -69,9 +69,9 @@
                        (T nil))) ; TODO: error handling
          (rarity-less-substr (string-trim " " (subseq line (+ colon-index 1)))))
     (cond ((eq 0 (search "Clothing" rarity-less-substr))
-           (append (list rarity 'cosmetic) (parse-data-line-cosmetic rarity-less-substr)))
+           (append (list rarity 'clothing) (parse-data-line-cosmetic rarity-less-substr)))
           ((eq 0 (search "Horn" rarity-less-substr))
-           (append (list rarity 'cosmetic) (parse-data-line-cosmetic rarity-less-substr)))
+           (append (list rarity 'horn) (parse-data-line-cosmetic rarity-less-substr)))
           ((eq 0 (search "Credits" rarity-less-substr))
            (append (list rarity 'credits) (parse-data-line-credits rarity-less-substr)))
           ((eq 0 (search "Car" rarity-less-substr))
@@ -87,3 +87,27 @@
       ((equalp wheelspin-type-prefix "Center") (append (parse-data-line-helper line-suffix) '(center)))
       ((equalp wheelspin-type-prefix "Right")  (append (parse-data-line-helper line-suffix) '(right)))
       (T                                       (append (parse-data-line-helper line) '(single))))))
+
+; Tool to reconstruct the textual representation of tuples of the form
+; (rarity type value-or-nil wheelspin-only? description wheelspin-type).
+(defun format-record-tuple (record)
+  (let* ((super-wheelspin (case (record-wheelspin-type record)
+                                   (left "Left - ")
+                                   (center "Center - ")
+                                   (right "Right - ")
+                                   (single "")))
+         (rarity (case (record-rarity record)
+                   (common "Common: ")
+                   (rare "Rare: ")
+                   (epic "Epic: ")
+                   (legendary "Legendary: ")
+                   (forza-edition "Forza Edition: ")))
+         (value-as-number (if (record-value record) (record-value record) 0))
+         (value (if (eq (mod value-as-number 1000) 0) (/ value-as-number 1000) (/ value-as-number 1000.0)))
+         (wheelspin-only (if (record-wheelspin-only-p record) "wheelspin only, " "")))
+  (case (record-type record)
+    (clothing (format nil "~A~AClothing - ~A" super-wheelspin rarity (record-description record)))
+    (horn (format nil "~A~AHorn - ~A" super-wheelspin rarity (record-description record)))
+    (credits (format nil "~A~ACredits - ~dk" super-wheelspin rarity value))
+    (car (format nil "~A~ACar, ~Aworth ~dk credits - ~A"
+                 super-wheelspin rarity wheelspin-only value (record-description record))))))
