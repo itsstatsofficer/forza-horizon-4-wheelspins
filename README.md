@@ -27,3 +27,9 @@ The value of the car comes from <https://forza.fandom.com/wiki/Forza_Horizon_4/C
 I do not know the rarity of Forza Edition cars,
 so I simply recorded them as "Forza Edition"
 (e.g. "Forza Edition: Car, wheelspin only, worth 316k credits - 1980 Renault 5 Turbo Forza Edition").
+
+For Super Wheelspins,
+each wheelspin is recorded individually,
+with a prefix saying whether it was the left, center, or right wheelspin
+(e.g. "Left - Common: Credits - 10k").
+The three wheelspins are recorded in sequence.

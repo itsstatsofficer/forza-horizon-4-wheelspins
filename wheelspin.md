@@ -4,6 +4,9 @@
 - Common: Credits - 2k
 - Legendary: Car, worth 140k credits - 1956 Lotus Eleven
 - Common: Clothing - Colby Leather Sweater, I think?
+- Left - Common: Credits - 10k
+- Center - Epic: Car, worth 60k credits - 1969 Volkswagen Class 5 Bug
+- Right - Epic: Car, worth 420k credits - 2015 McLaren 650S Coupé
 - Common: Clothing - All Black Canvas
 - Epic: Clothing - Golden Running Shorts
 - Legendary: Car, worth 2100k credits - 1965 Shelby Cobra 427 S/C
@@ -59,6 +62,9 @@
 - Common: Clothing - Orange Turtleneck
 - Common: Credits - 60k
 - Common: Clothing - Yellow Boots
+- Left - Epic: Clothing - Tartan Rollups
+- Center - Common: Credits - 5k
+- Right - Rare: Car, worth 82k credits - 2008 BMW Z4 M Coupe
 - Common: Credits - 10k
 - Rare: Credits - 100k
 - Common: Credits - 5k
