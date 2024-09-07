@@ -22,3 +22,5 @@
 - Epic: Credits - 230k
 - Rare: Credits - 75k
 - Forza Edition: Car, wheelspin only, worth 316k credits - 1980 Renault 5 Turbo Forza Edition
+- Epic: Clothing - Golden Canvas
+- Epic: Credits - 170k
