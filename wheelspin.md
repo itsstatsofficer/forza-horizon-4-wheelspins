@@ -4,3 +4,20 @@
 - Common: Credits - 2k
 - Legendary: Car, worth 140k credits - 1956 Lotus Eleven
 - Common: Clothing - Colby Leather Sweater, I think?
+- Common: Clothing - All Black Canvas
+- Epic: Clothing - Golden Running Shorts
+- Legendary: Car, worth 2100k credits - 1965 Shelby Cobra 427 S/C
+- Common: Car, worth 30k credits - 1976 Jeep CJ5 Renegade
+- Common: Clothing - Green Boots
+- Common: Credits - 15k
+- Common: Car, worth 20k credits - 1965 Volkswagen Corrado VR6
+- Rare: Clothing - Corduroy Cap
+- Common: Clothing - Cheap Trilby
+- Common: Credits - 10k
+- Common: Credits - 10k
+- Rare: Clothing - Leopard Bowler
+- Common: Car, worth 35k credits - 1932 Ford De Luxe Five-Window Coupe
+- Common: Car, worth 26k credits - 2013 Mazda MX-5
+- Common: Clothing - White Shorts
+- Epic: Credits - 230k
+- Rare: Credits - 75k
