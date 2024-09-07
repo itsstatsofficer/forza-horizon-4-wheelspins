@@ -1647,9 +1647,9 @@ Common: Credits - 25k
 Common: Credits - 10k
 Common: Credits - 15k
 Epic: Credits - 160k
-Right - Rare: Car, worth 58k credits - 2011 BMW Z4 sDrive35is
+Rare: Car, worth 58k credits - 2011 BMW Z4 sDrive35is
 Rare: Credits - 140k
-Right - Epic: Car, worth 300k credits - 1978 Hoonigan Ford Escort RS1800
+Epic: Car, worth 300k credits - 1978 Hoonigan Ford Escort RS1800
 Common: Credits - 5k
 Rare: Car, worth 75k credits - 2014 HSV Gen-F GTS
 Epic: Car, worth 315k credits - 2018 Porsche 911 GT2 RS
