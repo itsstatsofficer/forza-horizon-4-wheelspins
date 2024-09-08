@@ -1,4 +1,4 @@
-; Tools for parsing and processing the data in `wheelspin.md`.
+; Tools for parsing and processing the data in `wheelspins.txt`.
 ;
 ;;; File format
 ;
@@ -44,7 +44,7 @@
           alist))
 
 ;;; Functions for handling the data file
-(defparameter data-file-name "./wheelspin.md")
+(defparameter data-file-name "./wheelspins.txt")
 
 (defun read-data-file ()
   "Returns the contents of *data-file-name* in a list of strings"

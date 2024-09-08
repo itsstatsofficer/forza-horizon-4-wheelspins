@@ -6,7 +6,7 @@ To the best of my knowledge,
 the odds are not published anywhere,
 so I simply recorded a bunch of spins.
 
-The data is in [`wheelspin.md`](wheelspin.md).
+The data is in [`wheelspins.txt`](wheelspins.txt).
 The file format is described in [`processing.lisp`](processing.lisp),
 which also contains tools for parsing and processing the data.
 
@@ -28,7 +28,7 @@ I was able to find a few Reddit posts with similar goals.
 Analysis
 ========
 
-I recorded 1809 entries in `wheelspin.md`.
+I recorded 1809 entries in `wheelspins.txt`.
 I recorded each entry in the same order in which I spun the wheelspins
 (i.e. opened the lootboxes)
 This means that,
