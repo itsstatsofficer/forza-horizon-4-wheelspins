@@ -247,6 +247,7 @@
             \\begin{tikzpicture}
             \\begin{axis}[
                     xbar stacked,
+                    xmin = 0,
                     ytick = data,
                     nodes near coords,
                     hide x axis = true,
@@ -288,7 +289,6 @@
   (make-bar-plot-outcome-evolution cosmetics-evolution-regular-wheelspin-type 100))
 
 (defparameter cosmetics-rarity-outcome-evolution-tex-chart
-  ; Note: this one is glitched, needs to manually add a dummy rarity before all others
   (make-bar-plot-outcome-evolution cosmetics-evolution-regular-wheelspin-rarity 100))
 
 (defun make-linear-plot-outcome-evolution (outcome-summary-list chunk-length)
