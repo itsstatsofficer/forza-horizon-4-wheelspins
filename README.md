@@ -75,11 +75,11 @@ i.e. I was just somewhat unlucky on the last 300 wheelspins.
 
 For the average value of the wheelspin outcomes,
 the answer is more nuanced.
-The chart below splits between the credit rewards and the cars.
+The chart below splits between the value of credit rewards and the value of cars.
 
 ![Evolution of the average prize value as cosmetics are removed from the prize pool](cosmetics-evolution-value.png)
 
-The credit rewards sooms to be trending downwards.
+The credit rewards seems to be trending downwards.
 This trend is actually slightly masked by two outliers in the 600 and 700 wheelspins marks
 (corresponding, respectively,
 to wheelspins 501 to 600,
@@ -133,3 +133,56 @@ to estimate,
 for example,
 the probability of getting a cosmetic from a super wheelspin;
 hence the restriction to regular wheelspins.
+
+Comparison to Super Wheelspins
+------------------------------
+
+In the following tables,
+I compare regular wheelspins to super wheelspins.
+
+The analysis above shows that cosmetics affect the distribution of the wheelspins.
+I decided to split the regular wheelspins in two groups:
+the "early game regular wheelspins",
+comprising the first 700 spins,
+and the "late game regular wheelspins",
+comprising of the remaining spins.
+
+I got no cosmetics from the super wheelspins,
+so they are analyzed as a whole.
+For the analysis,
+I simply counted each wheel in a super wheelspin as a separate wheelspin.
+for example,
+each wheelspin in a super wheelspin has about 74% chance of being a credits prize,
+so each super wheelspin (all three wheels)
+contains 2.22 credits prizes on average.
+
+For my own curiosity,
+I also analyzed each segment of super wheelspins separately
+(i.e. all prizes obtained from the leftmost wheel in superwheelspins,
+all from the center wheel,
+and all from the right wheel).
+
+The overall rarity distribution is the following.
+
+![Overall rarity distribution of the wheelspin outcomes](rarity-distribution-overall.png)
+
+
+### More details about the dataset
+
+I misrecorded two credits spins from super wheelspins;
+I simply removed them from the database.
+
+I did get a cosmetic from a super wheelspin after I started recording the data.
+It is entry #65 in `wheelspins.txt`,
+and I decided to simply ignore it,
+to simplify the analysis.
+
+The dataset also records
+whether each spin was on the left, center, or right portion of a super wheelspin.
+This could be used,
+for example,
+to analyze whether these have different distributions from the others;
+or whether getting e.g. credits on the first spin influences the distribution in the other two.
+This would probably require more data though,
+and since I suspect the answer is "no" for both,
+I didn't bother.

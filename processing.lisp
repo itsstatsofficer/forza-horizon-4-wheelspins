@@ -345,13 +345,115 @@
   ; and `ymin = 0` to remove axis discontinuity.
   (make-linear-plot-outcome-evolution cosmetics-evolution-regular-wheelspin-value 100))
 
+(defun outlier-p (record)
+  "Determines whether a record is worth 1 million credits or more."
+  (and (record-value record)
+       (>= (record-value record) 1000000)))
+
 (defparameter cosmetics-evolution-regular-wheelspin-value-no-outliers
   ; First split the database in 100-record chunks, then remove the outliers from each chunk.
   (make-linear-plot-outcome-evolution
     (mapcar #'outcome-value-summary
-            (mapcar (lambda (record-list)
-                      (remove-if (lambda (record) (and (record-value record)
-                                                  (>= (record-value record) 1000000)))
-                                 record-list))
+            (mapcar (lambda (record-list) (remove-if #'outlier-p record-list))
                     (split-list 100 (remove-if #'super-wheelspin-p database))))
     100))
+
+(defparameter super-wheelspin-database
+  ; Subdatabase with only the superwheelspins. Also removes the (single) cosmetic superwheelspin.
+  (remove-if (lambda (r) (or (record-cosmetic-p r) (not (super-wheelspin-p r)))) database))
+
+(defparameter regular-wheelspin-database
+  ; Subdatabase with only the regular wheelspins (contains cosmetics)
+  (remove-if #'super-wheelspin-p database))
+
+(defparameter early-game-regular-wheelspin-database
+  ; First 700 regular wheelspins (contains cosmetics)
+  (subseq regular-wheelspin-database 0 700))
+
+(defparameter late-game-regular-wheelspin-database
+  ; Remaining regular wheelspins (no cosmetics)
+  (subseq regular-wheelspin-database 700))
+
+(defparameter subdatabase-alist
+  ; Association list mapping labels to segments of the database
+  (list (cons "Regular Wheelspins (all)" regular-wheelspin-database)
+        (cons "Regular Wheelspins (early game)" early-game-regular-wheelspin-database)
+        (cons "Regular Wheelspins (late game)" late-game-regular-wheelspin-database)
+        (cons "Super Wheelspins (all wheels)" super-wheelspin-database)
+        (cons "Super Wheelspin (left wheel)"
+              (remove-if-not (lambda (r) (eq (record-wheelspin-type r) 'left))
+                             super-wheelspin-database))
+        (cons "Super Wheelspin (center wheel)"
+              (remove-if-not (lambda (r) (eq (record-wheelspin-type r) 'center))
+                             super-wheelspin-database))
+        (cons "Super Wheelspin (right wheel)"
+              (remove-if-not (lambda (r) (eq (record-wheelspin-type r) 'right))
+                             super-wheelspin-database))))
+
+(defun make-bar-plot-subdatabase-outcomes (subdatabase-outcomes-alist plot-title)
+  "Similar to `make-bar-plot-outcome-evolution`,
+  but using the association list labels for the y ticks."
+  (let* ((tikz-template "
+            \\documentclass{standalone}
+            \\usepackage{tikz}
+            \\usepackage{pgfplots}
+            \\pgfplotsset{compat=1.18}
+            \\definecolor{fhcommon}{HTML}{44CC77}
+            \\definecolor{fhrare}{HTML}{33BBEE}
+            \\definecolor{fhepic}{HTML}{BB66EE}
+            \\definecolor{fhlegendary}{HTML}{FFCC33}
+            \\definecolor{fhfe}{HTML}{FF33FF} % Not quite the gradient but works
+            \\begin{document}
+            \\begin{tikzpicture}
+            \\begin{axis}[
+                    title = {~A},
+                    xbar stacked,
+                    xmin = 0,
+                    ytick = data,
+                    nodes near coords = {\\pgfmathprintnumber\\pgfplotspointmeta\\%},
+                    hide x axis = true,
+                    symbolic y coords = {~A},
+                    legend style = {
+                        at = {(0.5,0)},
+                        anchor = north,
+                    },
+                    legend columns = -1,
+                    axis y line* = none,
+                    y dir = reverse,
+                    cycle list = {
+                        {black!50!fhcommon,fill=fhcommon},
+                        {black!50!fhrare,fill=fhrare},
+                        {black!50!fhepic,fill=fhepic},
+                        {black!50!fhlegendary,fill=fhlegendary},
+                        {black!70!fhfe,fill=fhfe} % Darker for slightly better readability
+                    },
+                ]
+                \\legend{~{~A~^,~}}
+                ~{\\addplot coordinates {~A};~}
+            \\end{axis}
+            \\end{tikzpicture}
+            \\end{document}")
+         (y-label-list (format nil "~{~A~^,~}"
+                               (mapcar #'car subdatabase-outcomes-alist)))
+         (keys (mapcar #'car (cdar subdatabase-outcomes-alist))) ; Use the first row to get the key list
+         (format-percentage (lambda (n) (format nil "~A" (/ (round (* 1000 n)) 10.0))))
+         (make-coordinate (lambda (key outcome-summary label)
+                            (format nil "(~d,{~d})"
+                                    (funcall format-percentage
+                                             (cdr (assoc key outcome-summary :test #'equalp)))
+                                    label)))
+         (outcome-coordinates-list
+           (loop for key in keys collect
+                 (format nil "~{~A~^ ~}"
+                         (loop for subdatabase-outcome-summary in subdatabase-outcomes-alist
+                               for index from 1
+                               collect (funcall make-coordinate
+                                                key
+                                                (cdr subdatabase-outcome-summary)
+                                                (car subdatabase-outcome-summary)))))))
+    (format nil tikz-template plot-title y-label-list keys outcome-coordinates-list)))
+
+(defparameter subdatabase-rarity-outcome-tex-chart
+  ; I manually removed the `nodes near coords` option for readability
+  (make-bar-plot-subdatabase-outcomes (mapcar-alist #'outcome-rarity-summary subdatabase-alist)
+                                      "Overall Rarity Distribution"))
