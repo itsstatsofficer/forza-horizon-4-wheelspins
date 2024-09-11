@@ -178,9 +178,13 @@
 
 (defun make-outcome-summary (record-list label-predicate-alist)
   "Given an association list of labels to predicates,
-  returns an association list mapping the labels to the proportions of each predicate."
+  returns an association list mapping the labels to a list with two values:
+  the first contains the proportion of the records satisfying each predicate,
+  and the second contains the actual count of records satisfying each predicate."
   (let ((record-count (length record-list)))
-    (mapcar-alist (lambda (predicate) (/ (count-if predicate record-list) record-count))
+    (mapcar-alist (lambda (predicate)
+                    (let ((predicate-satisfying-count (count-if predicate record-list)))
+                      (list (/ predicate-satisfying-count record-count) predicate-satisfying-count)))
                   label-predicate-alist)))
 
 (defun outcome-type-summary (record-list)
@@ -203,17 +207,25 @@
           (cons "Legendary"     (lambda (record) (eq (record-rarity record) 'legendary)))
           (cons "Forza Edition" (lambda (record) (eq (record-rarity record) 'forza-edition))))))
 
-(defun outcome-value-if (predicate record-list)
+(defun outcome-value-sum-if (predicate record-list)
+  "Returns the sum of the values of the records in the list matching the predicate."
+  (reduce #'+ record-list :key (lambda (record)
+                                 (if (funcall predicate record) (record-value record) 0))))
+
+(defun outcome-value-average-if (predicate record-list)
   "Returns the average value of the records in the list matching the predicate."
-  (round (/ (reduce #'+ record-list :key (lambda (record)
-                                        (if (funcall predicate record) (record-value record) 0)))
-         (count-if predicate record-list))))
+  (round (/ (outcome-value-sum-if predicate record-list)
+            (count-if predicate record-list))))
 
 (defun outcome-value-summary (record-list)
   "Returns an association list mapping \"Credits\" and \"Cars\"
-  to the average of the corresponding values."
-  (list (cons "Credits" (outcome-value-if #'record-credits-p record-list))
-        (cons "Cars" (outcome-value-if #'record-car-p record-list))))
+  to the average and sum of the corresponding values."
+  (list (list "Credits"
+              (outcome-value-average-if #'record-credits-p record-list)
+              (outcome-value-sum-if #'record-credits-p record-list))
+        (list "Cars"
+              (outcome-value-average-if #'record-car-p record-list)
+              (outcome-value-sum-if #'record-car-p record-list))))
 
 ;;; Some interesting analyses
 (defparameter database (mapcar #'parse-data-line (read-data-file)))
@@ -274,7 +286,7 @@
          (keys (mapcar #'car (car outcome-summary-list))) ; Use the first row to get the key list
          (make-coordinate (lambda (key outcome-summary index)
                             (format nil "(~d,~d)"
-                                    (* chunk-length (cdr (assoc key outcome-summary :test #'equalp)))
+                                    (* chunk-length (second (assoc key outcome-summary :test #'equalp)))
                                     (* chunk-length index))))
          (outcome-coordinates-list
            (loop for key in keys collect
@@ -328,7 +340,7 @@
          (make-coordinate (lambda (key outcome-summary index)
                             (format nil "(~d,~d)"
                                     (* chunk-length index) ; First index, compared to before
-                                    (cdr (assoc key outcome-summary :test #'equalp)))))
+                                    (second (assoc key outcome-summary :test #'equalp)))))
          (outcome-coordinates-list
            (loop for key in keys collect
                  (format nil "~{~A~^ ~}"
@@ -440,7 +452,7 @@
          (make-coordinate (lambda (key outcome-summary label)
                             (format nil "(~d,{~d})"
                                     (funcall format-percentage
-                                             (cdr (assoc key outcome-summary :test #'equalp)))
+                                             (second (assoc key outcome-summary :test #'equalp)))
                                     label)))
          (outcome-coordinates-list
            (loop for key in keys collect
