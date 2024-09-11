@@ -225,6 +225,37 @@ the left wheel seems to be twice as likely to yield wheelspin-exclusive cars as 
 This indicates that the distribution is uneven among the wheels,
 but I would like to have more data before stating this with more certainty.
 
+The table below contains the average value of the prizes.
+
+|                                 | Credits | Cars    | Combined | Credits (no outliers) | Cars (no outliers) | Combined (no outliers) |
+|---------------------------------+---------+---------+----------+-----------------------+--------------------+------------------------|
+| Regular Wheelspins (all)        | 52,799  | 144,629 | 59,339   | 48,201                | 80,029             | 45,484                 |
+| Regular Wheelspins (early game) | 56,366  | 122,313 | 58,107   | 51,373                | 83,765             | 47,953                 |
+| Regular Wheelspins (late game)  | 47,174  | 195,073 | 61,521   | 43,204                | 71,564             | 41,115                 |
+| Super Wheelspins (all wheels)   | 47,679  | 231,318 | 65,137   | 47,679                | 184,461            | 58,904                 |
+| Super Wheelspin (left wheel)    | 41,830  | 264,113 | 63,682   | 41,830                | 222,541            | 58,441                 |
+| Super Wheelspin (center wheel)  | 50,053  | 256,362 | 70,948   | 50,053                | 158,292            | 57,498                 |
+| Super Wheelspin (right wheel)   | 51,289  | 175,179 | 60,753   | 51,289                | 175,179            | 60,753                 |
+
+The data clearly shows that cars have about 4-5 times higher value than credit prizes.
+However this figure includes outliers.
+I don't know how to properly handle outliers,
+so I simply decided to call a prize an "outlier" if its value was one million credits or more,
+and removed them from the dataset before calculating the second set of columns in the table above.
+
+The "combined" column tries to aggregate credits and cars.
+Forza Horizon 4 allows us to sell duplicated cars for half of their value.
+You might choose not to sell the car and list it on the Auction House for higher earnings,
+but to simplify matters,
+I assumed each car is simply sold for half of its value.
+Outliers were handled as before.
+Hence,
+for example,
+each wheel of a super wheelspin was worth 65,137 credits for me,
+but removing the outliers the combined average was 58,904.
+This means that a singular super wheelspin is worth about 177k credits
+(counting the three wheels together).
+
 
 ### More details about the dataset
 

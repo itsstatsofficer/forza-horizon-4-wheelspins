@@ -212,25 +212,58 @@
           (cons "Legendary"     (lambda (record) (eq (record-rarity record) 'legendary)))
           (cons "Forza Edition" (lambda (record) (eq (record-rarity record) 'forza-edition))))))
 
-(defun outcome-value-sum-if (predicate record-list)
-  "Returns the sum of the values of the records in the list matching the predicate."
-  (reduce #'+ record-list :key (lambda (record)
-                                 (if (funcall predicate record) (record-value record) 0))))
+(defun outcome-value-sum-if (predicate record-list &optional (halve-car-values nil))
+  "Returns the sum of the values of the records in the list matching the predicate.
+  If halve-car-values is not nil, the value of cars will be halved."
+  (reduce #'+ (mapcar (lambda (record)
+                        (if (not (funcall predicate record))
+                          0
+                          (if (and halve-car-values (record-car-p record))
+                            (/ (record-value record) 2)
+                            (record-value record))))
+                      record-list)))
 
-(defun outcome-value-average-if (predicate record-list)
+(defun outcome-value-average-if (predicate record-list &optional (halve-car-values nil))
   "Returns the average value of the records in the list matching the predicate."
-  (round (/ (outcome-value-sum-if predicate record-list)
+  (round (/ (outcome-value-sum-if predicate record-list halve-car-values)
             (count-if predicate record-list))))
+
+(defun outcome-value-average-sum-if (predicate record-list &optional (halve-car-values nil))
+  "Returns a list with two elements: `outcome-value-average-if`, and `outcome-value-sum-if`."
+  (list (outcome-value-average-if predicate record-list halve-car-values)
+        (outcome-value-sum-if predicate record-list halve-car-values)))
 
 (defun outcome-value-summary (record-list)
   "Returns an association list mapping \"Credits\" and \"Cars\"
   to the average and sum of the corresponding values."
-  (list (list "Credits"
-              (outcome-value-average-if #'record-credits-p record-list)
-              (outcome-value-sum-if #'record-credits-p record-list))
-        (list "Cars"
-              (outcome-value-average-if #'record-car-p record-list)
-              (outcome-value-sum-if #'record-car-p record-list))))
+  (list (cons "Credits" (outcome-value-average-sum-if #'record-credits-p record-list))
+        (cons "Cars" (outcome-value-average-sum-if #'record-car-p record-list))))
+
+(defun outcome-value-summary-no-outliers (record-list)
+  "Same as `outcome-value-summary`, but also includes columns excluding outliers,
+  and columns with a weighted combination of cars and credits."
+  (list (cons "Credits" (outcome-value-average-sum-if #'record-credits-p record-list))
+        (cons "Cars" (outcome-value-average-sum-if #'record-car-p record-list))
+        (cons "Combined" (outcome-value-average-sum-if
+                           (lambda (record)
+                             (or (record-credits-p record)
+                                 (record-car-p record)))
+                           record-list T))
+        (cons "Credits (no outliers)" (outcome-value-average-sum-if (lambda (record)
+                                                                      (and (record-credits-p record)
+                                                                           (not (outlier-p record))))
+                                                                    record-list))
+        (cons "Cars (no outliers)" (outcome-value-average-sum-if (lambda (record)
+                                                                   (and (record-car-p record)
+                                                                        (not (outlier-p record))))
+                                                                 record-list))
+        (cons "Combined (no outliers)" (outcome-value-average-sum-if
+                                         (lambda (record)
+                                           (and (not (outlier-p record))
+                                                (or (record-credits-p record)
+                                                    (record-car-p record))))
+                                         record-list T))))
+
 
 ;;; Some interesting analyses
 (defparameter database (mapcar #'parse-data-line (read-data-file)))
@@ -475,14 +508,15 @@
   (make-bar-plot-subdatabase-outcomes (mapcar-alist #'outcome-rarity-summary subdatabase-alist)
                                       "Overall Rarity Distribution"))
 
-(defun summary-list-as-table (subdatabase-outcomes-alist)
+(defun default-cell-formatter (alist-pair)
+  "Prints the third element, then the second element as a percentage surrounded by parentheses."
+  (format nil "~D (~,1,2F%)" (third alist-pair) (second alist-pair)))
+
+(defun summary-list-as-table (subdatabase-outcomes-alist
+                              &optional (format-cell #'default-cell-formatter))
   "Returns a string formatting the list of outcomes as a Markdown table"
   (let* ((header-data-column-names (mapcar #'car (cdar subdatabase-outcomes-alist)))
          (header-labels (cons "" header-data-column-names)) ; Prepend column, for the row labels
-         (format-cell (lambda (alist-pair) ; Actually a triplet
-                        (format nil "~D (~D%)"
-                                (third alist-pair)
-                                (/ (round (* (second alist-pair) 1000)) 10.0))))
          (rows (loop for outcome-summary in subdatabase-outcomes-alist
                      collect (cons (car outcome-summary) ; Prepend the row label
                                    (mapcar format-cell (cdr outcome-summary)))))
@@ -502,6 +536,10 @@
                         (mapcar format-row rows))))
     table))
 
+(defun averages-list-as-table (subdatabase-outcomes-alist)
+  (summary-list-as-table subdatabase-outcomes-alist (lambda (alist-pair)
+                                                      (format nil "~:D" (second alist-pair)))))
+
 (defparameter subdatabase-rarity-outcome-md-table
   ; This can be printed out using e.g.
   ;   sbcl --noinform --load processing.lisp --eval '(format T subdatabase-rarity-outcome-md-table)' --quit
@@ -515,3 +553,6 @@
   ; Note: I manually removed the cycle list,
   ; and appended `+[nodes near coords style = right]` to the last `\addplot` command
   (summary-list-as-table (mapcar-alist #'outcome-type-summary subdatabase-alist)))
+
+(defparameter subdatabase-value-averages-md-table
+  (averages-list-as-table (mapcar-alist #'outcome-value-summary-no-outliers subdatabase-alist)))
