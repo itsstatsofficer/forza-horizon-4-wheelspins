@@ -43,6 +43,11 @@
                   (funcall function (cdr pair))))
           alist))
 
+(defun interleave (list1 list2)
+  (loop for e1 in list1
+        for e2 in list2
+        collect e1 collect e2))
+
 ;;; Functions for handling the data file
 (defparameter data-file-name "./wheelspins.txt")
 
@@ -469,3 +474,35 @@
   ; I manually removed the `nodes near coords` option for readability
   (make-bar-plot-subdatabase-outcomes (mapcar-alist #'outcome-rarity-summary subdatabase-alist)
                                       "Overall Rarity Distribution"))
+
+(defun summary-list-as-table (subdatabase-outcomes-alist)
+  "Returns a string formatting the list of outcomes as a Markdown table"
+  (let* ((header-data-column-names (mapcar #'car (cdar subdatabase-outcomes-alist)))
+         (header-labels (cons "" header-data-column-names)) ; Prepend column, for the row labels
+         (format-cell (lambda (alist-pair) ; Actually a triplet
+                        (format nil "~D (~D%)"
+                                (third alist-pair)
+                                (/ (round (* (second alist-pair) 1000)) 10.0))))
+         (rows (loop for outcome-summary in subdatabase-outcomes-alist
+                     collect (cons (car outcome-summary) ; Prepend the row label
+                                   (mapcar format-cell (cdr outcome-summary)))))
+         (get-column (lambda (index) ; Get the column, including the header
+                       (cons (nth index header-labels)
+                             (mapcar (lambda (r) (nth index r)) rows))))
+         (column-widths (loop for index from 0 below (length header-labels)
+                              collect (apply #'max (mapcar #'length (funcall get-column index)))))
+         (format-row (lambda (row)
+                       (format nil "| ~{~vA~^ | ~} |" (interleave column-widths row))))
+         (divider-row (format nil "|~{~A~^+~}|"
+                              (loop for width in column-widths
+                                    collect (make-string (+ 2 width) :initial-element #\-))))
+         (table (format nil "~A~%~A~%~{~A~%~}"
+                        (funcall format-row header-labels)
+                        divider-row
+                        (mapcar format-row rows))))
+    table))
+
+(defparameter subdatabase-rarity-outcome-md-table
+  ; This can be printed out using e.g.
+  ;   sbcl --noinform --load processing.lisp --eval '(format T subdatabase-rarity-outcome-md-table)' --quit
+  (summary-list-as-table (mapcar-alist #'outcome-rarity-summary subdatabase-alist)))

@@ -166,6 +166,19 @@ The overall rarity distribution is the following.
 
 ![Overall rarity distribution of the wheelspin outcomes](rarity-distribution-overall.png)
 
+|                                 | Common      | Rare        | Epic        | Legendary | Forza Edition |
+|---------------------------------+-------------+-------------+-------------+-----------+---------------|
+| Regular Wheelspins (all)        | 677 (65.3%) | 210 (20.3%) | 117 (11.3%) | 27 (2.6%) | 6 (0.6%)      |
+| Regular Wheelspins (early game) | 446 (63.7%) | 150 (21.4%) | 77 (11.0%)  | 22 (3.1%) | 5 (0.7%)      |
+| Regular Wheelspins (late game)  | 231 (68.5%) | 60 (17.8%)  | 40 (11.9%)  | 5 (1.5%)  | 1 (0.3%)      |
+| Super Wheelspins (all wheels)   | 544 (70.6%) | 61 (7.9%)   | 94 (12.2%)  | 48 (6.2%) | 24 (3.1%)     |
+| Super Wheelspin (left wheel)    | 182 (71.1%) | 17 (6.6%)   | 26 (10.2%)  | 17 (6.6%) | 14 (5.5%)     |
+| Super Wheelspin (center wheel)  | 183 (70.9%) | 19 (7.4%)   | 31 (12.0%)  | 20 (7.8%) | 5 (1.9%)      |
+| Super Wheelspin (right wheel)   | 179 (69.6%) | 25 (9.7%)   | 37 (14.4%)  | 11 (4.3%) | 5 (1.9%)      |
+
+(The table contains the percentages and the actual count,
+so e.g. I got 48 legendary prizes in super wheelspins,
+which was 3.1% of all super wheelspin prizes.)
 
 ### More details about the dataset
 
