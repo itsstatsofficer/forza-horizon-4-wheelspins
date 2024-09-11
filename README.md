@@ -150,8 +150,8 @@ comprising of the remaining spins.
 I got no cosmetics from the super wheelspins,
 so they are analyzed as a whole.
 For the analysis,
-I simply counted each wheel in a super wheelspin as a separate wheelspin.
-for example,
+I simply counted each prize in a super wheelspin as a separate wheelspin.
+For example,
 each wheelspin in a super wheelspin has about 74% chance of being a credits prize,
 so each super wheelspin (all three wheels)
 contains 2.22 credits prizes on average.
@@ -179,6 +179,52 @@ The overall rarity distribution is the following.
 (The table contains the percentages and the actual count,
 so e.g. I got 48 legendary prizes in super wheelspins,
 which was 3.1% of all super wheelspin prizes.)
+
+I will focus on comparing late-game regular wheelspins with overall superwheelspins
+(rows 3 and 4 in the table above).
+Recall that I opened the super wheelspins only after getting all cosmetics from regular wheelspins,
+so in a sense the super wheelspins are also "late-game".
+
+The number of common prizes is around 70% in both cases,
+and also epic rewards hover at about 12%.
+The proportion of rare prizes in super wheelspins is less than half compared to regular wheelspins
+(in fact,
+epic rewards are more common than rare rewards for super wheelspins),
+and the proportion of legendary rewards is about 4 times higher on super wheelspins.
+Recall that the three prizes in each super wheelspin are recorded individually,
+so a singular super wheelspin,
+with the three prizes,
+will yield about 12 times more legendary prizes than a singular regular wheelspin.
+
+Since I got only one Forza Edition prize on late-game regular wheelspins,
+I do not have enough information to compare it to super wheelspins.
+
+Only cars can have the "Forza Edition" rarity,
+and all Forza Edition cars obtainable through wheelspins are wheelspins exclusives,
+but there are some wheelspin exclusives which are not Forza Edition.
+Overall,
+we have the following distribution of prize types.
+
+![Overall type distribution of the wheelspin outcomes](type-distribution-overall.png)
+
+|                                 | Cosmetics   | Credits     | Autoshow cars | Wheelspin exclusives |
+|---------------------------------+-------------+-------------+---------------+----------------------|
+| Regular Wheelspins (all)        | 103 (9.9%)  | 621 (59.9%) | 298 (28.7%)   | 15 (1.4%)            |
+| Regular Wheelspins (early game) | 103 (14.7%) | 380 (54.3%) | 206 (29.4%)   | 11 (1.6%)            |
+| Regular Wheelspins (late game)  | 0 (0.0%)    | 241 (71.5%) | 92 (27.3%)    | 4 (1.2%)             |
+| Super Wheelspins (all wheels)   | 0 (0.0%)    | 573 (74.3%) | 170 (22.0%)   | 28 (3.6%)            |
+| Super Wheelspin (left wheel)    | 0 (0.0%)    | 194 (75.8%) | 47 (18.4%)    | 15 (5.9%)            |
+| Super Wheelspin (center wheel)  | 0 (0.0%)    | 189 (73.3%) | 62 (24.0%)    | 7 (2.7%)             |
+| Super Wheelspin (right wheel)   | 0 (0.0%)    | 190 (73.9%) | 61 (23.7%)    | 6 (2.3%)             |
+
+The probability of getting cars seems to be slightly smaller for super wheelspins,
+but the proportion of _wheelspin-exclusive_ cars is about 2.5-3 times higher.
+
+Interestingly,
+the left wheel seems to be twice as likely to yield wheelspin-exclusive cars as the other two.
+This indicates that the distribution is uneven among the wheels,
+but I would like to have more data before stating this with more certainty.
+
 
 ### More details about the dataset
 

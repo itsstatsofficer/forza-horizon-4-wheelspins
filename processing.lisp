@@ -506,3 +506,12 @@
   ; This can be printed out using e.g.
   ;   sbcl --noinform --load processing.lisp --eval '(format T subdatabase-rarity-outcome-md-table)' --quit
   (summary-list-as-table (mapcar-alist #'outcome-rarity-summary subdatabase-alist)))
+
+(defparameter subdatabase-type-outcome-tex-chart
+  (make-bar-plot-subdatabase-outcomes (mapcar-alist #'outcome-type-summary subdatabase-alist)
+                                      "Overall Type Distribution"))
+
+(defparameter subdatabase-type-outcome-md-table
+  ; Note: I manually removed the cycle list,
+  ; and appended `+[nodes near coords style = right]` to the last `\addplot` command
+  (summary-list-as-table (mapcar-alist #'outcome-type-summary subdatabase-alist)))
