@@ -28,7 +28,7 @@ I was able to find a few Reddit posts with similar goals.
 Analysis
 ========
 
-I recorded 1809 entries in `wheelspins.txt`.
+I recorded 1808 entries in `wheelspins.txt`.
 I recorded each entry in the same order in which I spun the wheelspins
 (i.e. opened the lootboxes)
 This means that,
@@ -86,7 +86,7 @@ to wheelspins 501 to 600,
 and 601 to 700):
 I got one legendary one-million-credits wheelspin in each case.
 If I remove the two outliers,
-the two marks sitting slightly above 55k drops to 42194 and 40836,
+the two marks sitting slightly above 55k drops to 42418 and 40836,
 respectively.
 
 For the cars,
@@ -96,11 +96,11 @@ which is worth 10 million credits.
 Overall,
 I rolled six cars worth over one million credits on regular wheelspins:
 - regular wheelspin #9, worth 2.1 million credits, the 1965 Shelby Cobra 427 S/C;
-- regular wheelspin #112, worth 3.1 million credits, the 1984 Ferrari 288 GTO;
-- regular wheelspin #294, worth 1.2 million credits, the 1954 Mercedes-Benz 300 SL Coupé;
-- regular wheelspin #590, worth 2.3 million credits, the 2016 Lamborghini Centenario LP 770-4;
-- regular wheelspin #791, worth 10 million credits, the 1939 Mercedes-Benz W154; and
-- regular wheelspin #930, worth 2.0 million credits, the 1995 Ferrari F50.
+- regular wheelspin #111, worth 3.1 million credits, the 1984 Ferrari 288 GTO;
+- regular wheelspin #293, worth 1.2 million credits, the 1954 Mercedes-Benz 300 SL Coupé;
+- regular wheelspin #589, worth 2.3 million credits, the 2016 Lamborghini Centenario LP 770-4;
+- regular wheelspin #790, worth 10 million credits, the 1939 Mercedes-Benz W154; and
+- regular wheelspin #929, worth 2.0 million credits, the 1995 Ferrari F50.
 
 Removing the outliers gives the following (combined) graph:
 
@@ -133,6 +133,15 @@ to estimate,
 for example,
 the probability of getting a cosmetic from a super wheelspin;
 hence the restriction to regular wheelspins.
+
+Lastly,
+I had to alter two records during the analysis.
+One was a 175k credits rewards that was labeled as a "rare" prize,
+which I relabeled it to an "epic" prize;
+and a 230k epic credits prize.
+Since that record was the only one of its kind,
+it was most definitely a misrecording,
+so I simply removed that record from the dataset.
 
 Comparison to Super Wheelspins
 ------------------------------
@@ -168,9 +177,9 @@ The overall rarity distribution is the following.
 
 |                                 | Common      | Rare        | Epic        | Legendary | Forza Edition |
 |---------------------------------+-------------+-------------+-------------+-----------+---------------|
-| Regular Wheelspins (all)        | 677 (65.3%) | 210 (20.3%) | 117 (11.3%) | 27 (2.6%) | 6 (0.6%)      |
-| Regular Wheelspins (early game) | 446 (63.7%) | 150 (21.4%) | 77 (11.0%)  | 22 (3.1%) | 5 (0.7%)      |
-| Regular Wheelspins (late game)  | 231 (68.5%) | 60 (17.8%)  | 40 (11.9%)  | 5 (1.5%)  | 1 (0.3%)      |
+| Regular Wheelspins (all)        | 677 (65.3%) | 209 (20.2%) | 117 (11.3%) | 27 (2.6%) | 6 (0.6%)      |
+| Regular Wheelspins (early game) | 447 (63.9%) | 149 (21.3%) | 77 (11.0%)  | 22 (3.1%) | 5 (0.7%)      |
+| Regular Wheelspins (late game)  | 230 (68.5%) | 60 (17.9%)  | 40 (11.9%)  | 5 (1.5%)  | 1 (0.3%)      |
 | Super Wheelspins (all wheels)   | 544 (70.6%) | 61 (7.9%)   | 94 (12.2%)  | 48 (6.2%) | 24 (3.1%)     |
 | Super Wheelspin (left wheel)    | 182 (71.1%) | 17 (6.6%)   | 26 (10.2%)  | 17 (6.6%) | 14 (5.5%)     |
 | Super Wheelspin (center wheel)  | 183 (70.9%) | 19 (7.4%)   | 31 (12.0%)  | 20 (7.8%) | 5 (1.9%)      |
@@ -209,9 +218,9 @@ we have the following distribution of prize types.
 
 |                                 | Cosmetics   | Credits     | Autoshow cars | Wheelspin exclusives |
 |---------------------------------+-------------+-------------+---------------+----------------------|
-| Regular Wheelspins (all)        | 103 (9.9%)  | 621 (59.9%) | 298 (28.7%)   | 15 (1.4%)            |
+| Regular Wheelspins (all)        | 103 (9.9%)  | 620 (59.8%) | 298 (28.8%)   | 15 (1.4%)            |
 | Regular Wheelspins (early game) | 103 (14.7%) | 380 (54.3%) | 206 (29.4%)   | 11 (1.6%)            |
-| Regular Wheelspins (late game)  | 0 (0.0%)    | 241 (71.5%) | 92 (27.3%)    | 4 (1.2%)             |
+| Regular Wheelspins (late game)  | 0 (0.0%)    | 240 (71.4%) | 92 (27.4%)    | 4 (1.2%)             |
 | Super Wheelspins (all wheels)   | 0 (0.0%)    | 573 (74.3%) | 170 (22.0%)   | 28 (3.6%)            |
 | Super Wheelspin (left wheel)    | 0 (0.0%)    | 194 (75.8%) | 47 (18.4%)    | 15 (5.9%)            |
 | Super Wheelspin (center wheel)  | 0 (0.0%)    | 189 (73.3%) | 62 (24.0%)    | 7 (2.7%)             |
@@ -229,9 +238,9 @@ The table below contains the average value of the prizes.
 
 |                                 | Credits | Cars    | Combined | Credits (no outliers) | Cars (no outliers) | Combined (no outliers) |
 |---------------------------------+---------+---------+----------+-----------------------+--------------------+------------------------|
-| Regular Wheelspins (all)        | 52,799  | 144,629 | 59,339   | 48,201                | 80,029             | 45,484                 |
-| Regular Wheelspins (early game) | 56,366  | 122,313 | 58,107   | 51,373                | 83,765             | 47,953                 |
-| Regular Wheelspins (late game)  | 47,174  | 195,073 | 61,521   | 43,204                | 71,564             | 41,115                 |
+| Regular Wheelspins (all)        | 52,513  | 144,629 | 59,156   | 47,906                | 80,029             | 45,284                 |
+| Regular Wheelspins (early game) | 55,813  | 122,313 | 57,755   | 50,817                | 83,765             | 47,597                 |
+| Regular Wheelspins (late game)  | 47,288  | 195,073 | 61,644   | 43,301                | 71,564             | 41,179                 |
 | Super Wheelspins (all wheels)   | 47,679  | 231,318 | 65,137   | 47,679                | 184,461            | 58,904                 |
 | Super Wheelspin (left wheel)    | 41,830  | 264,113 | 63,682   | 41,830                | 222,541            | 58,441                 |
 | Super Wheelspin (center wheel)  | 50,053  | 256,362 | 70,948   | 50,053                | 158,292            | 57,498                 |
@@ -255,7 +264,6 @@ each wheel of a super wheelspin was worth 65,137 credits for me,
 but removing the outliers the combined average was 58,904.
 This means that a singular super wheelspin is worth about 177k credits
 (counting the three wheels together).
-
 
 ### More details about the dataset
 

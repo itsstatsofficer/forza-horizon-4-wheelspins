@@ -22,7 +22,6 @@ Rare: Clothing - Leopard Bowler
 Common: Car, worth 35k credits - 1932 Ford De Luxe Five-Window Coupe
 Common: Car, worth 26k credits - 2013 Mazda MX-5
 Common: Clothing - White Shorts
-Epic: Credits - 230k
 Rare: Credits - 75k
 Forza Edition: Car, wheelspin only, worth 316k credits - 1980 Renault 5 Turbo Forza Edition
 Epic: Clothing - Golden Canvas
@@ -111,7 +110,7 @@ Epic: Clothing - Heart Slip-Ons
 Common: Credits - 2k
 Common: Car, worth 80k credits - 1959 Jaguar Mk II 3.8
 Rare: Car, worth 90k credits - 2016 Mercedes-AMG C 63 S Coupé
-Rare: Credits - 175k
+Epic: Credits - 175k
 Common: Credits - 15k
 Common: Car, worth 20k credits - 1983 Volkswagen Golf GTI
 Rare: Car, worth 110k credits - 1969 Chevrolet Camaro Super Sport Coupe

@@ -571,12 +571,12 @@
   (summary-list-as-table (mapcar-alist #'outcome-rarity-summary subdatabase-alist)))
 
 (defparameter subdatabase-type-outcome-tex-chart
+  ; Note: I manually removed the cycle list,
+  ; and appended `+[nodes near coords style = right]` to the last `\addplot` command
   (make-bar-plot-subdatabase-outcomes (mapcar-alist #'outcome-type-summary subdatabase-alist)
                                       "Overall Type Distribution"))
 
 (defparameter subdatabase-type-outcome-md-table
-  ; Note: I manually removed the cycle list,
-  ; and appended `+[nodes near coords style = right]` to the last `\addplot` command
   (summary-list-as-table (mapcar-alist #'outcome-type-summary subdatabase-alist)))
 
 (defparameter subdatabase-value-averages-md-table
