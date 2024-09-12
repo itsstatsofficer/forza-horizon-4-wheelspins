@@ -204,6 +204,12 @@
   (and (record-car-p record)
        (record-wheelspin-only-p record)))
 
+(defun record-rarity-common-p        (record) (eq (record-rarity record) 'common))
+(defun record-rarity-rare-p          (record) (eq (record-rarity record) 'rare))
+(defun record-rarity-epic-p          (record) (eq (record-rarity record) 'epic))
+(defun record-rarity-legendary-p     (record) (eq (record-rarity record) 'legendary))
+(defun record-rarity-forza-edition-p (record) (eq (record-rarity record) 'forza-edition))
+
 (defun super-wheelspin-p (record)
   (not (eq (record-wheelspin-type record) 'single)))
 
@@ -236,11 +242,11 @@
   \"Forza Edition\" to the corresponding proportions."
   (make-outcome-summary
     record-list
-    (list (cons "Common"        (lambda (record) (eq (record-rarity record) 'common)))
-          (cons "Rare"          (lambda (record) (eq (record-rarity record) 'rare)))
-          (cons "Epic"          (lambda (record) (eq (record-rarity record) 'epic)))
-          (cons "Legendary"     (lambda (record) (eq (record-rarity record) 'legendary)))
-          (cons "Forza Edition" (lambda (record) (eq (record-rarity record) 'forza-edition))))))
+    (list (cons "Common"        #'record-rarity-common-p)
+          (cons "Rare"          #'record-rarity-rare-p)
+          (cons "Epic"          #'record-rarity-epic-p)
+          (cons "Legendary"     #'record-rarity-legendary-p)
+          (cons "Forza Edition" #'record-rarity-forza-edition-p))))
 
 (defun outcome-value-sum-if (predicate record-list &optional (halve-car-values nil))
   "Returns the sum of the values of the records in the list matching the predicate.
@@ -249,8 +255,8 @@
                         (if (not (funcall predicate record))
                           0
                           (if (and halve-car-values (record-car-p record))
-                            (/ (record-value record) 2)
-                            (record-value record))))
+                            (/ (record-value-or-0 record) 2)
+                            (record-value-or-0 record))))
                       record-list)))
 
 (defun outcome-value-average-if (predicate record-list &optional (halve-car-values nil))
@@ -667,3 +673,37 @@
     (partitioned-outcome-frequency
       (remove-if-not #'record-credits-p super-wheelspin-database))
     "Frequency of possible credit prizes (super wheelspins)"))
+
+(defun credits-average-segmented-summary (record-list)
+  "Returns an association list mapping \"Common\", \"Rare\", \"Epic\", and \"Legendary\"
+  to the corresponding average values of each rarity."
+  (let ((credit-records (remove-if-not #'record-credits-p record-list)))
+    (list (cons "Common"    (outcome-value-average-sum-if #'record-rarity-common-p    credit-records))
+          (cons "Rare"      (outcome-value-average-sum-if #'record-rarity-rare-p      credit-records))
+          (cons "Epic"      (outcome-value-average-sum-if #'record-rarity-epic-p      credit-records))
+          (cons "Legendary" (outcome-value-average-sum-if #'record-rarity-legendary-p credit-records)))))
+
+(defparameter regular-wheelspin-credits-average-md-table
+  (averages-list-as-table
+    (mapcar-alist #'credits-average-segmented-summary
+                  (list (cons "Regular Wheelspins (all)" regular-wheelspin-database)
+                        (cons "Regular Wheelspins (early game)" early-game-regular-wheelspin-database)
+                        (cons "Regular Wheelspins (late game)" late-game-regular-wheelspin-database)))))
+
+(defparameter estimated-value-cosmetics
+  (let* ((early-game-cosmetics-count
+           (count-if #'record-cosmetic-p early-game-regular-wheelspin-database))
+         (early-game-credits-count
+           (count-if #'record-credits-p early-game-regular-wheelspin-database))
+         (early-game-credits-fraction
+           (/ early-game-credits-count (+ early-game-credits-count early-game-cosmetics-count)))
+         (late-game-credits-average
+           (outcome-value-average-if (lambda (r) (and (record-credits-p r) (record-rarity-common-p r)))
+                                     late-game-regular-wheelspin-database))
+         (early-game-credits-average
+           (outcome-value-average-if (lambda (r) (and (record-credits-p r) (record-rarity-common-p r)))
+                                     early-game-regular-wheelspin-database))
+         (estimated-value
+           (/ (- late-game-credits-average (* early-game-credits-fraction early-game-credits-average))
+              (- 1 early-game-credits-fraction))))
+    (round estimated-value)))

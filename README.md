@@ -340,3 +340,53 @@ the absolutely worst possible super wheelspin comprises of three 5k credits rewa
 (I got this outcome twice:
 once before I started recording this data,
 and once afterwards.)
+
+How much is a cosmetic worth?
+=============================
+
+I worked out one last bit of trivia from the dataset.
+We know from the section above that cosmetics are replaced with credits;
+presumably,
+they are replaced with credit prizes of the same rarity.
+What is the average value of credit prizes within each rarity?
+
+|                                 | Common | Rare    | Epic    | Legendary |
+|---------------------------------+--------+---------+---------+-----------|
+| Regular Wheelspins (all)        | 13,211 | 110,056 | 175,282 | 531,250   |
+| Regular Wheelspins (early game) | 13,993 | 110,000 | 175,795 | 500,000   |
+| Regular Wheelspins (late game)  | 12,055 | 110,172 | 174,444 | 625,000   |
+
+(I did not consider super wheelspins because they have no rare credit prizes.)
+
+The value of rare and epic prizes stays remarkably constant regarding early-game vs late-game spins.
+And there are too few legendary prizes to give an accurate average.
+The discrepancy in the value between early game and late game common credit prizes
+suggest that cosmetics are replaced with lower-value credit prizes.
+
+We may estimate this value as follows.
+14.7% of the early-game wheelspins yielded cosmetics,
+and 54.3% of them yielded credits,
+so cosmetics comprised 21.3% of the combined cosmetics + credits prize pool.
+Once the cosmetics were removed,
+the average value of the credits (including the replacements) become 12,055 credits,
+whereas the average prior to the removal was 13,993.
+That is,
+12,055 is the weighted average of "normal" credit prizes
+(13,993 credits, with weight 78.7%)
+and the replacement credit prizes (with weight 21.3%);
+therefore,
+the replacement credit prizes must average 4,905 credits.
+
+This is somewhat corroborated by the more prominent presence of 7k-valued credit prizes
+in the frequency plot for late-game credit rewards
+(compared to early-game credit rewards),
+but I am not confident that I have enough data to make a definite statement.
+
+Hence,
+we may estimate the monetary value of a common cosmetic to be around 5-7k credits,
+a rare cosmetic to be 110k credits,
+an epic cosmetic to be 175k credits,
+and a legendary cosmetic to be 500-600k credits.
+
+I must highlight that I made several assumptions on these estimates,
+so they should be taken with a grain of salt.
