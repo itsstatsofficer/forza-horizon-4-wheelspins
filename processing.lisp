@@ -48,6 +48,28 @@
         for e2 in list2
         collect e1 collect e2))
 
+(defun make-frequency-alist (number-list)
+  "Returns an alist mapping numbers showing up in the given list
+  to the number of times that it shows up."
+  (nbutlast (reduce (lambda (partial-frequency-list next-element)
+                      (let* ((head-element (caar partial-frequency-list))
+                             (head-element-count (cdar partial-frequency-list)))
+                        (if (equal head-element next-element)
+                          (acons head-element (1+ head-element-count) (cdr partial-frequency-list))
+                          (acons next-element 1 partial-frequency-list))))
+                    (sort number-list #'>)
+                    :initial-value '(("dummy" . 0))))) ; dummy element removed by nbutlast
+
+(defun format-value (n)
+  "Returns e.g. 2000 as 2k and 1500000 as 1.5M."
+  (if (< n 1000000)
+    (if (integerp (/ n 1000))
+      (format nil "~Dk" (/ n 1000))
+      (format nil "~,1Fk" (/ n 1000)))
+    (if (integerp (/ n 1000000))
+      (format nil "~DM" (/ n 1000000))
+      (format nil "~,1FM" (/ n 1000000)))))
+
 ;;; Functions for handling the data file
 (defparameter data-file-name "./wheelspins.txt")
 
@@ -83,6 +105,10 @@
 (setf (fdefinition 'record-wheelspin-only-p) #'fourth)
 (setf (fdefinition 'record-description) #'fifth)
 (setf (fdefinition 'record-wheelspin-type) #'sixth)
+
+(defun record-value-or-0 (record)
+  "Returns 0 if the record is a cosmetic, and its value otherwise."
+  (or (record-value record) 0))
 
 (defun parse-data-line-car (line)
   "Parses \"Car, wheelspin only, worth 28k credits - 1993 Ford SVT Cobra R\" into '(28000 T \"1993 Ford SVT Cobra R\")"
@@ -153,7 +179,7 @@
                    (epic "Epic: ")
                    (legendary "Legendary: ")
                    (forza-edition "Forza Edition: ")))
-         (value-as-number (if (record-value record) (record-value record) 0))
+         (value-as-number (record-value-or-0 record))
          (value (if (eq (mod value-as-number 1000) 0) (/ value-as-number 1000) (/ value-as-number 1000.0)))
          (wheelspin-only (if (record-wheelspin-only-p record) "wheelspin only, " "")))
   (case (record-type record)
@@ -180,6 +206,10 @@
 
 (defun super-wheelspin-p (record)
   (not (eq (record-wheelspin-type record) 'single)))
+
+(defun outlier-p (record)
+  "Determines whether a record is worth 1 million credits or more."
+  (>= (record-value-or-0 record) 1000000))
 
 (defun make-outcome-summary (record-list label-predicate-alist)
   "Given an association list of labels to predicates,
@@ -395,11 +425,6 @@
   ; and `ymin = 0` to remove axis discontinuity.
   (make-linear-plot-outcome-evolution cosmetics-evolution-regular-wheelspin-value 100))
 
-(defun outlier-p (record)
-  "Determines whether a record is worth 1 million credits or more."
-  (and (record-value record)
-       (>= (record-value record) 1000000)))
-
 (defparameter cosmetics-evolution-regular-wheelspin-value-no-outliers
   ; First split the database in 100-record chunks, then remove the outliers from each chunk.
   (make-linear-plot-outcome-evolution
@@ -556,3 +581,77 @@
 
 (defparameter subdatabase-value-averages-md-table
   (averages-list-as-table (mapcar-alist #'outcome-value-summary-no-outliers subdatabase-alist)))
+
+(defun partitioned-outcome-frequency (record-list)
+  "Returns an alist mapping \"Common\", \"Rare\", \"Epic\" and \"Legendary\"
+  to an alist mapping each number to its frequency."
+  (let ((frequency (make-frequency-alist (mapcar #'record-value-or-0 record-list))))
+    (list (cons "Common"    (remove-if-not (lambda (pair) (<=   1000 (car pair)   69999)) frequency))
+          (cons "Rare"      (remove-if-not (lambda (pair) (<=  70000 (car pair)  149999)) frequency))
+          (cons "Epic"      (remove-if-not (lambda (pair) (<= 150000 (car pair)  249999)) frequency))
+          (cons "Legendary" (remove-if-not (lambda (pair) (<= 250000 (car pair) 1000000)) frequency)))))
+
+(defun make-bar-plot-value-frequency (partitioned-frequency-alist plot-title)
+  "Returns TikZ + PGFPlots code to display the frequency of the values in the given list."
+  (let* ((tikz-template "
+            \\documentclass{standalone}
+            \\usepackage{tikz}
+            \\usepackage{pgfplots}
+            \\pgfplotsset{compat=1.18}
+            \\definecolor{fhcommon}{HTML}{44CC77}
+            \\definecolor{fhrare}{HTML}{33BBEE}
+            \\definecolor{fhepic}{HTML}{BB66EE}
+            \\definecolor{fhlegendary}{HTML}{FFCC33}
+            \\begin{document}
+            \\begin{tikzpicture}
+            \\begin{axis}[
+                    title = {~A},
+                    ymin = 0,
+                    symbolic x coords = {~A},
+                    xtick = {~:*~A}, % Same as the symbolic x coords
+                    x tick label style = {rotate = 45, anchor = north east},
+                    nodes near coords,
+                    axis y line = none,
+                    axis x line = left,
+                    enlarge x limits = {true,abs=10pt},
+                    x axis line style = {-},
+                ]
+                \\addplot[ybar,black!50!fhcommon,fill=fhcommon] coordinates {~A};
+                \\addplot[ybar,black!50!fhrare,fill=fhrare] coordinates {~A};
+                \\addplot[ybar,black!50!fhepic,fill=fhepic] coordinates {~A};
+                \\addplot[ybar,black!50!fhlegendary,fill=fhlegendary] coordinates {~A};
+            \\end{axis}
+            \\end{tikzpicture}
+            \\end{document}")
+         (coordinate-names (format nil "~{~A~^,~}"
+                                   (mapcar (lambda (pair) (format-value (car pair)))
+                                           (apply #'append
+                                                  (mapcar #'cdr partitioned-frequency-alist)))))
+         (make-coordinate (lambda (pair) (format nil "(~A,~d)"
+                                                 (format-value (car pair))
+                                                 (cdr pair))))
+         (get-frequency (lambda (rarity-name)
+                          (cdr (assoc rarity-name partitioned-frequency-alist :test #'equal))))
+         (make-coordinate-list (lambda (rarity-name)
+                                 (format nil "~{~A~^ ~}"
+                                         (mapcar make-coordinate
+                                                 (funcall get-frequency rarity-name))))))
+    (format nil tikz-template plot-title coordinate-names
+            (funcall make-coordinate-list "Common")
+            (funcall make-coordinate-list "Rare")
+            (funcall make-coordinate-list "Epic")
+            (funcall make-coordinate-list "Legendary"))))
+
+
+(defparameter regular-wheelspin-credits-frequency
+  ; I manually added `width = 20cm, height = 5cm` to the options
+  (make-bar-plot-value-frequency
+    (partitioned-outcome-frequency
+      (remove-if-not #'record-credits-p late-game-regular-wheelspin-database))
+    "Frequency of possible credit prizes (regular wheelspins)"))
+
+(defparameter super-wheelspin-credits-frequency
+  (make-bar-plot-value-frequency
+    (partitioned-outcome-frequency
+      (remove-if-not #'record-credits-p super-wheelspin-database))
+    "Frequency of possible credit prizes (super wheelspins)"))
