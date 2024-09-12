@@ -284,3 +284,59 @@ or whether getting e.g. credits on the first spin influences the distribution in
 This would probably require more data though,
 and since I suspect the answer is "no" for both,
 I didn't bother.
+
+Frequency Distribution of Credit Prizes
+=======================================
+
+A few interesting patterns arise when we isolate the credit prizes
+and tally the frequency of each prize value.
+
+![Frequency distribution of credit prizes in regular wheelspins](credits-frequency-all-regular-wheelspins.png)
+
+Of course there is a clear bias towards common-rarity credit rewards,
+but interestingly the bulk of rewards seems to be of 2k, 5k, 10k and 15k rewards.
+7k rewards are about as rare as 100k rewards,
+and 1k and 4k rewards are surprisingly rare;
+I had the same number of 1k rewards as 250k rewards.
+
+The plateau after 100k is also interesting:
+the prizes between 110k and 200k are evenly distributed.
+
+The plot above summarizes all regular wheelspins.
+We can directly compare early-game wheelspins to late-game wheelspins:
+
+![Frequency distribution of credit prizes in early-game regular wheelspins](credits-frequency-early-game-regular-wheelspins.png)
+
+![Frequency distribution of credit prizes in late-game regular wheelspins](credits-frequency-late-game-regular-wheelspins.png)
+
+The removal of cosmetics from the prize pool increases the probability of getting a credits reward,
+but since the charts look fairly similar,
+this absence does not significantly affect the distribution of the credits rewards.
+
+And,
+despite the average value of credits rewards from regular wheelspins
+(48,201 without the outliers)
+being similar to the corresponding value from super wheelspins
+(47,679),
+the distribution is quite different.
+
+![Frequency distribution of credit prizes in super wheelspins](credits-frequency-super-wheelspins.png)
+
+The range of possible values is significantly smaller.
+Most prominently,
+there are no "rare"-rarity prizes;
+in fact,
+there are no credit rewards with values strictly between 30k and 150k.
+
+In the upper end,
+we also see prizes worth 300k, 400k and 500k credits,
+which don't show up in regular wheelspins;
+but the 1M credit prize (which do show up in regular wheelspins) is absent.
+
+In the lower end,
+the prizes valued 1k, 2k, 4k and 7k are also absent.
+Hence,
+the absolutely worst possible super wheelspin comprises of three 5k credits rewards.
+(I got this outcome twice:
+once before I started recording this data,
+and once afterwards.)

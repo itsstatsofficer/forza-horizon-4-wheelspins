@@ -605,6 +605,7 @@
             \\begin{document}
             \\begin{tikzpicture}
             \\begin{axis}[
+                    width = 20cm, height = 5cm,
                     title = {~A},
                     ymin = 0,
                     symbolic x coords = {~A},
@@ -642,15 +643,26 @@
             (funcall make-coordinate-list "Epic")
             (funcall make-coordinate-list "Legendary"))))
 
-
 (defparameter regular-wheelspin-credits-frequency
-  ; I manually added `width = 20cm, height = 5cm` to the options
+  (make-bar-plot-value-frequency
+    (partitioned-outcome-frequency
+      (remove-if-not #'record-credits-p regular-wheelspin-database))
+    "Frequency of possible credit prizes (all regular wheelspins)"))
+
+(defparameter late-game-regular-wheelspin-credits-frequency
   (make-bar-plot-value-frequency
     (partitioned-outcome-frequency
       (remove-if-not #'record-credits-p late-game-regular-wheelspin-database))
-    "Frequency of possible credit prizes (regular wheelspins)"))
+    "Frequency of possible credit prizes (late-game regular wheelspins)"))
+
+(defparameter early-game-regular-wheelspin-credits-frequency
+  (make-bar-plot-value-frequency
+    (partitioned-outcome-frequency
+      (remove-if-not #'record-credits-p early-game-regular-wheelspin-database))
+    "Frequency of possible credit prizes (early-game regular wheelspins)"))
 
 (defparameter super-wheelspin-credits-frequency
+  ; I manually added `width = 11cm` to the options
   (make-bar-plot-value-frequency
     (partitioned-outcome-frequency
       (remove-if-not #'record-credits-p super-wheelspin-database))
