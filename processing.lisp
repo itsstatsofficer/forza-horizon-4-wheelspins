@@ -707,3 +707,34 @@
            (/ (- late-game-credits-average (* early-game-credits-fraction early-game-credits-average))
               (- 1 early-game-credits-fraction))))
     (round estimated-value)))
+
+(defun group-super-wheelspins (record-list)
+  "Groups the wheelspins in 3-element lists, each containing one left,
+  one center, and one right wheel of a super wheelspin.
+  The lists may be shorter if wheels are missing from a super wheelspin."
+  (reduce (lambda (current-record partial-list)
+            (if (null partial-list) ; initial value
+              (list (list current-record))
+              (let ((current-wheel (record-wheelspin-type current-record))
+                    (head-wheel (record-wheelspin-type (caar partial-list))))
+                (if (or ; This record and next record are not on the same super wheelspin
+                      (eq current-wheel head-wheel)
+                      (eq current-wheel 'right)
+                      (and (eq current-wheel 'center) (eq head-wheel 'left)))
+                  (cons (list current-record) partial-list) ; Create new "3"-element list
+                  (cons (cons current-record (car partial-list)) ; Prepend to 3-element list at the top
+                        (cdr partial-list))))))
+          record-list
+          :from-end T
+          :initial-value nil))
+
+(defparameter regular-wheelspin-outliers
+  (loop for record in regular-wheelspin-database
+        for index from 1
+        if (outlier-p record) collect (cons index record)))
+
+(defparameter super-wheelspin-outliers
+  (loop for record-list in (group-super-wheelspins super-wheelspin-database)
+        for index from 1
+        for possible-outlier = (find-if #'outlier-p record-list) ; TODO: a triplet may have two outliers
+        if possible-outlier collect (cons index possible-outlier)))

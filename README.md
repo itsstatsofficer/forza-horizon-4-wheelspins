@@ -94,13 +94,8 @@ the big spike at 800 is also due to an outlier:
 the 1939 Mercedes-Benz W154,
 which is worth 10 million credits.
 Overall,
-I rolled six cars worth over one million credits on regular wheelspins:
-- regular wheelspin #9, worth 2.1 million credits, the 1965 Shelby Cobra 427 S/C;
-- regular wheelspin #111, worth 3.1 million credits, the 1984 Ferrari 288 GTO;
-- regular wheelspin #293, worth 1.2 million credits, the 1954 Mercedes-Benz 300 SL Coupé;
-- regular wheelspin #589, worth 2.3 million credits, the 2016 Lamborghini Centenario LP 770-4;
-- regular wheelspin #790, worth 10 million credits, the 1939 Mercedes-Benz W154; and
-- regular wheelspin #929, worth 2.0 million credits, the 1995 Ferrari F50.
+I rolled six cars worth over one million credits on regular wheelspins;
+a list of all outliers is available in the "Outliers" section below.
 
 Removing the outliers gives the following (combined) graph:
 
@@ -390,3 +385,24 @@ and a legendary cosmetic to be 500-600k credits.
 
 I must highlight that I made several assumptions on these estimates,
 so they should be taken with a grain of salt.
+
+Outliers
+========
+
+Throughout this text,
+I defined "outlier" as a result worth 1 million credits or more.
+Here is a complete list of all 14 outliers I got:
+- regular wheelspin #9, worth 2.1 million credits, the 1965 Shelby Cobra 427 S/C;
+- regular wheelspin #111, worth 3.1 million credits, the 1984 Ferrari 288 GTO;
+- regular wheelspin #293, worth 1.2 million credits, the 1954 Mercedes-Benz 300 SL Coupé;
+- regular wheelspin #524, 1 million credits prize;
+- regular wheelspin #589, worth 2.3 million credits, the 2016 Lamborghini Centenario LP 770-4;
+- regular wheelspin #668, 1 million credits prize;
+- regular wheelspin #790, worth 10 million credits, the 1939 Mercedes-Benz W154;
+- regular wheelspin #929, worth 2.0 million credits, the 1995 Ferrari F50;
+- regular wheelspin #1002, 1 million credits prize;
+- super wheelspin #7 (left wheel), worth 2.8 million credits, the 2002 Ferrari Enzo Ferrari;
+- super wheelspin #107 (center wheel), worth 1.5 million credits, the 2016 Aston Martin Vulcan;
+- super wheelspin #144 (center wheel), worth 1.5 million credits, the 2013 Ferrari LaFerrari
+- super wheelspin #170 (center wheel), worth 1.0 million credits, the 2004 Maserati MC12; and
+- super wheelspin #257 (center wheel), worth 3.4 million credits, the 2016 W Motors Lykan HyperSport.
