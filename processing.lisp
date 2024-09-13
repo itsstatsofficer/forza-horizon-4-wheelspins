@@ -564,7 +564,7 @@
                               collect (apply #'max (mapcar #'length (funcall get-column index)))))
          (format-row (lambda (row)
                        (format nil "| ~{~vA~^ | ~} |" (interleave column-widths row))))
-         (divider-row (format nil "|~{~A~^+~}|"
+         (divider-row (format nil "|~{~A~^|~}|"
                               (loop for width in column-widths
                                     collect (make-string (+ 2 width) :initial-element #\-))))
          (table (format nil "~A~%~A~%~{~A~%~}"

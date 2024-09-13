@@ -171,7 +171,7 @@ The overall rarity distribution is the following.
 ![Overall rarity distribution of the wheelspin outcomes](rarity-distribution-overall.png)
 
 |                                 | Common      | Rare        | Epic        | Legendary | Forza Edition |
-|---------------------------------+-------------+-------------+-------------+-----------+---------------|
+|---------------------------------|-------------|-------------|-------------|-----------|---------------|
 | Regular Wheelspins (all)        | 677 (65.3%) | 209 (20.2%) | 117 (11.3%) | 27 (2.6%) | 6 (0.6%)      |
 | Regular Wheelspins (early game) | 447 (63.9%) | 149 (21.3%) | 77 (11.0%)  | 22 (3.1%) | 5 (0.7%)      |
 | Regular Wheelspins (late game)  | 230 (68.5%) | 60 (17.9%)  | 40 (11.9%)  | 5 (1.5%)  | 1 (0.3%)      |
@@ -212,7 +212,7 @@ we have the following distribution of prize types.
 ![Overall type distribution of the wheelspin outcomes](type-distribution-overall.png)
 
 |                                 | Cosmetics   | Credits     | Autoshow cars | Wheelspin exclusives |
-|---------------------------------+-------------+-------------+---------------+----------------------|
+|---------------------------------|-------------|-------------|---------------|----------------------|
 | Regular Wheelspins (all)        | 103 (9.9%)  | 620 (59.8%) | 298 (28.8%)   | 15 (1.4%)            |
 | Regular Wheelspins (early game) | 103 (14.7%) | 380 (54.3%) | 206 (29.4%)   | 11 (1.6%)            |
 | Regular Wheelspins (late game)  | 0 (0.0%)    | 240 (71.4%) | 92 (27.4%)    | 4 (1.2%)             |
@@ -232,7 +232,7 @@ but I would like to have more data before stating this with more certainty.
 The table below contains the average value of the prizes.
 
 |                                 | Credits | Cars    | Combined | Credits (no outliers) | Cars (no outliers) | Combined (no outliers) |
-|---------------------------------+---------+---------+----------+-----------------------+--------------------+------------------------|
+|---------------------------------|---------|---------|----------|-----------------------|--------------------|------------------------|
 | Regular Wheelspins (all)        | 52,513  | 144,629 | 59,156   | 47,906                | 80,029             | 45,284                 |
 | Regular Wheelspins (early game) | 55,813  | 122,313 | 57,755   | 50,817                | 83,765             | 47,597                 |
 | Regular Wheelspins (late game)  | 47,288  | 195,073 | 61,644   | 43,301                | 71,564             | 41,179                 |
@@ -346,7 +346,7 @@ they are replaced with credit prizes of the same rarity.
 What is the average value of credit prizes within each rarity?
 
 |                                 | Common | Rare    | Epic    | Legendary |
-|---------------------------------+--------+---------+---------+-----------|
+|---------------------------------|--------|---------|---------|-----------|
 | Regular Wheelspins (all)        | 13,211 | 110,056 | 175,282 | 531,250   |
 | Regular Wheelspins (early game) | 13,993 | 110,000 | 175,795 | 500,000   |
 | Regular Wheelspins (late game)  | 12,055 | 110,172 | 174,444 | 625,000   |
