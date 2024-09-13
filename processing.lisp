@@ -1,5 +1,11 @@
 ; Tools for parsing and processing the data in `wheelspins.txt`.
 ;
+; Almost all functions here are defined somewhat independently of `wheelspins.txt`
+; (i.e. they should be able to handle other similar datasets).
+; The only exception is that I arbitrarily defined that the first 700 wheelspins
+; are "early game" and the rest are "late game";
+; other datasets may need a different number than 700.
+;
 ;;; File format
 ;
 ; The wheelspin results are recorded in order.
