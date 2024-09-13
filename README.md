@@ -4,7 +4,7 @@ Forza Horizon 4 Wheelspins
 Wheelspins is Forza Horizon's version of lootboxes.
 To the best of my knowledge,
 the odds are not published anywhere,
-so I simply recorded a bunch of spins.
+so I simply recorded a bunch of spins and produced the graphs below.
 
 The data is in [`wheelspins.txt`](wheelspins.txt).
 The file format is described in [`processing.lisp`](processing.lisp),
@@ -70,11 +70,11 @@ I was able to find a few Reddit posts with similar goals.
 - <https://www.reddit.com/r/forza/comments/9lcjlc/> has 140 (presumably regular) early-game wheelspins.
 - <https://www.reddit.com/r/forza/comments/9kp0ip/> has another 100.
 - <https://www.reddit.com/r/forza/comments/azhf35/> has another 1069.
-- <https://www.reddit.com/r/ForzaHorizon/comments/s2xgww> has data for Forza Horizon 5.
+- <https://www.reddit.com/r/ForzaHorizon/comments/s2xgww/> has data for Forza Horizon 5.
     This specific post asks whether skipping the animation affects the distribution
     (compared to letting the wheelspin animation play out fully).
     Answer: no.
-- <https://www.reddit.com/r/ForzaHorizon/comments/r155sg> has 407 wheelspins,
+- <https://www.reddit.com/r/ForzaHorizon/comments/r155sg/> has 407 wheelspins,
     also for Forza Horizon 5.
 
 Analysis
@@ -86,12 +86,12 @@ I recorded each entry in the same order in which I spun the wheelspins
 This means that,
 roughly speaking,
 I spun 700 regular wheelspins,
-then I supn over 250 super wheelspins
+then I spun over 250 super wheelspins
 (generating 750 entries),
 then finally I spun another 300 regular wheelspins.
 
 How Cosmetics Affect the Prize Distribution
--------------------------------------------
+===========================================
 
 Wheelspins sometimes gives cosmetic character customization options
 (clothing and horns).
@@ -110,6 +110,11 @@ and counted the number of cosmetics, credit rewards, and cars in each group.
 
 ![Evolution of the prize type distribution as cosmetics are removed from the prize pool](cosmetics-evolution-type.png)
 
+(For example,
+I got 28 cosmetics from wheelspins 1-100,
+then 20 cosmetics from wheelspins 101-200,
+and so on.)
+
 The number of cars stayed about the same,
 but the number of credit rewards increased.
 Therefore,
@@ -121,7 +126,7 @@ The same process gives the following graph.
 ![Evolution of the prize rarity distribution as cosmetics are removed from the prize pool](cosmetics-evolution-rarity.png)
 
 There seems to be a small shift towards more common prizes,
-but given the high overal variance,
+but given the high overall variance,
 this may very well be due to random chance;
 i.e. I was just somewhat unlucky on the last 300 wheelspins.
 
@@ -147,7 +152,7 @@ the 1939 Mercedes-Benz W154,
 which is worth 10 million credits.
 Overall,
 I rolled six cars worth over one million credits on regular wheelspins;
-a list of all outliers is available in the "Outliers" section below.
+a list of all outliers is available in the [Outliers](#outliers) section below.
 
 Removing the outliers gives the following (combined) graph:
 
@@ -169,7 +174,7 @@ but does not seem to be trending upwards nor downwards.
 
 I already had unlocked a significant fraction of the wheelspin-obtainable cosmetics
 before I started recording wheelspins.
-I unlocked the remaining ones in the first batch of 700 regular wheelspins,
+I unlocked almost all of the remaining ones in the first batch of 700 regular wheelspins,
 so I got no cosmetics in the following 250 super wheelspins.
 So the distribution of the 250 super wheelspins and the last 300 regular wheelspins stayed constant.
 This means that the order between these two batches of wheelspins does not matter,
@@ -191,7 +196,7 @@ it was most definitely a misrecording,
 so I simply removed that record from the dataset.
 
 Comparison to Super Wheelspins
-------------------------------
+==============================
 
 In the following tables,
 I compare regular wheelspins to super wheelspins.
@@ -209,12 +214,12 @@ For the analysis,
 I simply counted each prize in a super wheelspin as a separate wheelspin.
 For example,
 each wheelspin in a super wheelspin has about 74% chance of being a credits prize,
-so each super wheelspin (all three wheels)
+so a singular super wheelspin (with all three wheels)
 contains 2.22 credits prizes on average.
 
 For my own curiosity,
-I also analyzed each segment of super wheelspins separately
-(i.e. all prizes obtained from the leftmost wheel in superwheelspins,
+I also analyzed each wheel of super wheelspins individually
+(i.e. all prizes obtained from the leftmost wheel in super wheelspins,
 all from the center wheel,
 and all from the right wheel).
 
@@ -236,9 +241,10 @@ The overall rarity distribution is the following.
 so e.g. I got 48 legendary prizes in super wheelspins,
 which was 3.1% of all super wheelspin prizes.)
 
-I will focus on comparing late-game regular wheelspins with overall superwheelspins
+I will focus on comparing late-game regular wheelspins with overall super wheelspins
 (rows 3 and 4 in the table above).
-Recall that I opened the super wheelspins only after getting all cosmetics from regular wheelspins,
+Recall that I opened the super wheelspins
+only after getting pretty much all cosmetics from regular wheelspins,
 so in a sense the super wheelspins are also "late-game".
 
 The number of common prizes is around 70% in both cases,
@@ -314,22 +320,22 @@ This means that a singular super wheelspin is worth about 177k credits
 
 ### More details about the dataset
 
-I misrecorded two credits spins from super wheelspins;
+I misrecorded two credits prizes from super wheelspins;
 I simply removed them from the database.
 
 I did get a cosmetic from a super wheelspin after I started recording the data.
-It is entry #65 in `wheelspins.txt`,
-and I decided to simply ignore it,
+It is row 64 in `wheelspins.txt`,
+recorded way before the batch of 250 super wheelspins that I spun afterwards.
+I decided to simply ignore that wheel,
 to simplify the analysis.
 
-The dataset also records
-whether each spin was on the left, center, or right portion of a super wheelspin.
-This could be used,
+Since the dataset also records
+whether each spin was on the left, center, or right portion of a super wheelspin,
+we could also analyze,
 for example,
-to analyze whether these have different distributions from the others;
-or whether getting e.g. credits on the first spin influences the distribution in the other two.
+whether getting e.g. credits on the left wheel influences the distribution in the other two.
 This would probably require more data though,
-and since I suspect the answer is "no" for both,
+and since I suspect the answer is "no",
 I didn't bother.
 
 Frequency Distribution of Credit Prizes
@@ -342,12 +348,15 @@ and tally the frequency of each prize value.
 
 Of course there is a clear bias towards common-rarity credit rewards,
 but interestingly the bulk of rewards seems to be of 2k, 5k, 10k and 15k rewards.
-7k rewards are about as rare as 100k rewards,
+7k rewards are about as common as 100k rewards,
 and 1k and 4k rewards are surprisingly rare;
 I had the same number of 1k rewards as 250k rewards.
 
 The plateau after 100k is also interesting:
 the prizes between 110k and 200k are evenly distributed.
+The 100k prize itself is about twice as likely as the other "rare" rarity prizes.
+And there is no 80k prize;
+it is the only multiple of 10k missing below 200k.
 
 The plot above summarizes all regular wheelspins.
 We can directly compare early-game wheelspins to late-game wheelspins:
@@ -356,16 +365,17 @@ We can directly compare early-game wheelspins to late-game wheelspins:
 
 ![Frequency distribution of credit prizes in late-game regular wheelspins](credits-frequency-late-game-regular-wheelspins.png)
 
-The removal of cosmetics from the prize pool increases the probability of getting a credits reward,
-but since the charts look fairly similar,
-this absence does not significantly affect the distribution of the credits rewards.
+Although the [analysis above](#how-cosmetics-affect-the-prize-distribution)
+shows a clear decrease in the average value of credit prizes,
+this decrease is not that apparent in these frequency charts.
+The only thing I can point at is the increase of 7k credit prizes,
+and the (proportional) decrease of of rare credit prizes.
 
-And,
-despite the average value of credits rewards from regular wheelspins
+The distribution in super wheelspins is quite different,
+even though the average value of credits rewards from regular wheelspins
 (48,201 without the outliers)
-being similar to the corresponding value from super wheelspins
-(47,679),
-the distribution is quite different.
+is similar to the corresponding value from super wheelspins
+(47,679).
 
 ![Frequency distribution of credit prizes in super wheelspins](credits-frequency-super-wheelspins.png)
 
@@ -374,6 +384,8 @@ Most prominently,
 there are no "rare"-rarity prizes;
 in fact,
 there are no credit rewards with values strictly between 30k and 150k.
+(This absence explains why there are so few "rare"-rarity prizes
+in the rarity distribution of super wheelspins.)
 
 In the upper end,
 we also see prizes worth 300k, 400k and 500k credits,
@@ -455,7 +467,7 @@ Here is a complete list of all 14 outliers I got:
 - regular wheelspin #1002, 1 million credits prize;
 - super wheelspin #7 (left wheel), worth 2.8 million credits, the 2002 Ferrari Enzo Ferrari;
 - super wheelspin #107 (center wheel), worth 1.5 million credits, the 2016 Aston Martin Vulcan;
-- super wheelspin #144 (center wheel), worth 1.5 million credits, the 2013 Ferrari LaFerrari
+- super wheelspin #144 (center wheel), worth 1.5 million credits, the 2013 Ferrari LaFerrari;
 - super wheelspin #170 (center wheel), worth 1.0 million credits, the 2004 Maserati MC12; and
 - super wheelspin #257 (center wheel), worth 3.4 million credits, the 2016 W Motors Lykan HyperSport.
 
