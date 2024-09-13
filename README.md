@@ -10,6 +10,58 @@ The data is in [`wheelspins.txt`](wheelspins.txt).
 The file format is described in [`processing.lisp`](processing.lisp),
 which also contains tools for parsing and processing the data.
 
+Summary of the Findings
+=======================
+
+I recorded 1808 wheelspins and computed some statistics.
+
+Cosmetics are replaced with credit prizes as they are obtained in wheelspins,
+so the probability of getting a car is the same regardless of how many cosmetics were obtained.
+
+Once all cosmetics are obtained,
+around 70-75% of all wheelspin prizes are credits,
+both for regular wheelspins and for super wheelspins.
+The remaining rewards are cars.
+
+Each wheel in a super wheelspin
+is about 2.5-3 times as likely to give out wheelspin-exclusive cars.
+This means that,
+in a single super wheelspin,
+the three wheels collectively are roughly 7.5-9 times more likely to give out a wheelspin-exclusive
+compared to a single regular wheelspin.
+The actual numbers are still small, though:
+about 1.4% for regular wheelspins,
+and 3.6% for each wheel in a super wheelspin.
+
+The average value of the rewards is also different.
+Credit prizes in regular wheelspins averaged 47,174 credits,
+and the average value of the cars was 195,073.
+For super wheelspins,
+the averages are 47,679 and 231,318,
+respectively.
+
+(The distribution of the values of credit prizes
+is different between regular wheelspins and super wheelspins,
+but their average is about the same.)
+
+We can get a better picture of the value of an individual wheelspin
+by taking into account that duplicated cars can be sold at half of their value.
+Hence,
+once we obtain a copy of each car,
+every car prize can be be converted into credits.
+(We could try to increase our earnings by trying the Auction House,
+but I decided to ignore it in this text.)
+Furthermore,
+of the 1808 wheelspins,
+14 were worth 1 million credits or more.
+Excluding these outliers and weighting cars at half of their value,
+a regular wheelspin is worth 41,115 credits on average,
+and each wheel of a super wheelspin is worth 58,904 credits on average.
+
+Finally,
+the left wheel in super wheelspins
+apparently is more likely to give out wheelspin-exclusive cars than the other two.
+
 Prior Work
 ==========
 
@@ -406,3 +458,33 @@ Here is a complete list of all 14 outliers I got:
 - super wheelspin #144 (center wheel), worth 1.5 million credits, the 2013 Ferrari LaFerrari
 - super wheelspin #170 (center wheel), worth 1.0 million credits, the 2004 Maserati MC12; and
 - super wheelspin #257 (center wheel), worth 3.4 million credits, the 2016 W Motors Lykan HyperSport.
+
+Future Work
+===========
+
+More data is required to draw more accurate conclusions.
+
+Most importantly, the outliers.
+All cars worth over one million credits were rolled only once,
+and from skimming <https://forza.fandom.com/wiki/Forza_Horizon_4/Cars>
+there are plenty of wheelspin-obtainable cars that I never got.
+
+Getting accurate data about the cosmetics is more troublesome.
+An existing FH4 profile can be used to collect more late-game wheelspins,
+but we'd need to repeatedly play the game from scratch to collect data about the cosmetics.
+
+The code and the data is available in <https://github.com/itsstatsofficer/forza-horizon-4-wheelspins>.
+The code itself is fairly data-agnostic,
+so with minimal changes you could record your own wheelspins and make similar graphs.
+
+I must point, however,
+that we'd probably need to record tens of thousands of wheelspins
+(perhaps hundreds of thousands)
+to accurately account for rare cars and the influence of cosmetics.
+Reverse engineering FH4's code to get the exact wheelspin prizes algorithm
+is probably less work than this.
+I personally have no plans in recording more data;
+I'm done with Forza Horizon 4 for now.
+
+And, of course,
+repeating all of this in Forza Horizon 5.
